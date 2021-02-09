@@ -26,5 +26,15 @@ namespace Lab_1_Project
                 
         }
         public Gender Gender { get; set; }
+
+        public Person(string name, string surnme, uint age, Gender gender)
+        {
+            Name = name;
+            Surname = surnme;
+            Age = age;
+            Gender = gender;
+        }
     }
+
+    
 }
