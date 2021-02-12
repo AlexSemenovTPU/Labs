@@ -33,5 +33,31 @@ namespace Lab_1_Project
             Array.Clear(Persons, 0, Count);
             Array.Resize(ref _localPersonArray, 0);
         }
+
+        /// <summary>
+        /// Удаление элемента в списке
+        /// </summary>
+        /// <returns>Отредактированный список</returns>
+        public Person[] elementDelete(int index)
+        {
+            int elementCount = Count;
+
+            if (elementCount == 0) return Persons;
+            if (elementCount <= index) return Persons;
+
+            var outputList = new Person[elementCount - 1];
+            int indexNumber = 0;
+
+            for (int i = 0; i < elementCount; i++)
+            {
+                if (i != index)
+                {
+                    outputList[indexNumber] = Persons[i];
+                    indexNumber++;
+                }
+            }
+            _localPersonArray = outputList;
+            return Persons;
+        }
     }
 }
