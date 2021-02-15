@@ -34,6 +34,12 @@ namespace Lab_1_Project
             Age = age;
             Gender = gender;
         }
+
+        public string Info =>
+            $"Имя: {Name}; " +
+            $"Фамилия: {Surname}; " +
+            $"Возраст: {Age}; " +
+            $"Пол: {Gender}; ";
     }
 
     
