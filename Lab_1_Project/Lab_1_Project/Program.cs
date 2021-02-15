@@ -15,13 +15,24 @@ namespace Lab_1_Project
             
             for (int i = 0; i < 3; i++)
             {
-                personListOne.add(Randomizer.randomPerson());
-                personListTwo.add(Randomizer.randomPerson());
+                personListOne.Add(Randomizer.randomPerson());
+                personListTwo.Add(Randomizer.randomPerson());
             }
             string personInfo = "";
             Console.WriteLine(personListOne.ShowList(personInfo));
             Console.WriteLine(personListTwo.ShowList(personInfo));
 
+            Console.WriteLine(personListOne.IndexSearch(1));
+
+            Console.WriteLine(personListOne.ShowList(personInfo));
+            Console.WriteLine(personListTwo.ShowList(personInfo));
+
+            personListOne.Add(Randomizer.randomPerson());
+
+            Console.WriteLine(personListOne.Count);
+
+
+            Console.WriteLine(personListOne.Count);
 
             Console.ReadLine();
 

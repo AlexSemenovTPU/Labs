@@ -17,7 +17,7 @@ namespace Lab_1_Project
         /// <summary>
         /// Добавление нового элемента
         /// </summary>
-        public void add(Person newelement)
+        public void Add(Person newelement)
         {
             int elementCount = Count;
 
@@ -28,7 +28,7 @@ namespace Lab_1_Project
         /// <summary>
         /// Очистка списка
         /// </summary>
-        public void deleteAll()
+        public void DeleteAll()
         {
             Array.Clear(Persons, 0, Count);
             Array.Resize(ref _localPersonArray, 0);
@@ -38,7 +38,7 @@ namespace Lab_1_Project
         /// Удаление элемента в списке
         /// </summary>
         /// <returns>Отредактированный список</returns>
-        public Person[] elementDelete(int index)
+        public Person[] ElementDelete(int index)
         {
             int elementCount = Count;
 
@@ -70,6 +70,17 @@ namespace Lab_1_Project
             }
             return personInfo;
 
+        }
+
+        public string IndexSearch(int index)
+        {
+            int elementCount = Count;
+
+            if (elementCount == 0) return "";
+            if (elementCount <= index) return "";
+
+            string searchPerson = Person.Info(Persons[index]);
+            return searchPerson;
         }
     }
 }
