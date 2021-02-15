@@ -60,6 +60,10 @@ namespace Lab_1_Project
             return Persons;
         }
 
+        /// <summary>
+        /// Метод вывода списка в консоль
+        /// </summary>
+        /// <returns>Список персон построчно</returns>
         public string ShowList(string personInfo)
         {
             int elementCount = Count;
@@ -72,6 +76,10 @@ namespace Lab_1_Project
 
         }
 
+        /// <summary>
+        /// Поиск и вывод персоны по индексу в консоль
+        /// </summary>
+        /// <returns>Персона согласно индексу</returns>
         public string IndexSearch(int index)
         {
             int elementCount = Count;
