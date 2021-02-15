@@ -8,13 +8,15 @@ namespace Lab_1_Project
 {
     class Randomizer
     {
+
+        private static Random _rnd = new Random();
+
         /// <summary>
         /// Создание случайной персоны
         /// </summary>
         /// <returns>Экземпляр случайной персоны</returns>
         static public Person randomPerson()
         {
-            var rnd = new Random();
 
             string[] MaleNames = new string[10] { "Oliver", "Jack", "Harry", "Jacob", "Charley", "Thomas", "George", "Oscar", "James", "William" };
             string[] FemaleNames = new string[10] { "Melanie", "Florence", "Agatha", "Zoe", "Rebecca", "Ruth", "Barbara", "Amanda", "Victoria", "Irene" };
@@ -25,15 +27,15 @@ namespace Lab_1_Project
             uint Age;
             Gender Gender;
 
-            if (rnd.Next(1, 3) == 1) { Gender = Gender.Male; }
+            if (_rnd.Next(1, 3) == 1) { Gender = Gender.Male; }
             else { Gender = Gender.Female; }
 
-            if (Gender == Gender.Male) { Name = MaleNames[rnd.Next(0, 9)]; }
-            else { Name = FemaleNames[rnd.Next(0, 9)]; }
+            if (Gender == Gender.Male) { Name = MaleNames[_rnd.Next(0, 9)]; }
+            else { Name = FemaleNames[_rnd.Next(0, 9)]; }
 
-            Surname = Surnames[rnd.Next(0, 9)];
+            Surname = Surnames[_rnd.Next(0, 9)];
 
-            Age = Convert.ToUInt32(rnd.Next(0, 118));
+            Age = Convert.ToUInt32(_rnd.Next(0, 118));
 
             Person returnPerson = new Person(Name, Surname, Age, Gender);
             return returnPerson;

@@ -18,9 +18,10 @@ namespace Lab_1_Project
                 personListOne.add(Randomizer.randomPerson());
                 personListTwo.add(Randomizer.randomPerson());
             }
+            string personInfo = "";
+            Console.WriteLine(personListOne.ShowList(personInfo));
+            Console.WriteLine(personListTwo.ShowList(personInfo));
 
-            personListOne.ShowList();
-            personListTwo.ShowList();
 
             Console.ReadLine();
 

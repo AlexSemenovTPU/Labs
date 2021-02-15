@@ -60,12 +60,16 @@ namespace Lab_1_Project
             return Persons;
         }
 
-        public void ShowList()
+        public string ShowList(string personInfo)
         {
-            foreach (Person p in Persons)
+            int elementCount = Count;
+
+            for (int i = 0; i < elementCount; i++)
             {
-                Person.Info(p);
+                personInfo = personInfo + Person.Info(Persons[i]) + "\n";
             }
+            return personInfo;
+
         }
     }
 }

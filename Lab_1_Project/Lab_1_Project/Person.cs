@@ -40,9 +40,9 @@ namespace Lab_1_Project
         /// </summary>
         static public string Info(Person Person)
         {
-            return $"Имя: {Person.Name}; " +
-            $"Фамилия: {Person.Surname}; " +
-            $"Возраст: {Person.Age}; " +
+            return $"Имя: {Person.Name} " +
+            $"Фамилия: {Person.Surname} " +
+            $"Возраст: {Person.Age} " +
             $"Пол: {Person.Gender}; ";
         }
             
