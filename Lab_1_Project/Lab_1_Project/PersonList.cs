@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab_1_Project
 {
-    class PersonList
+    public class PersonList
     {
-        private Person[] _localPersonArray = new Person[1];
+        private Person[] _localPersonArray = new Person[0];
 
         public Person[] Persons => _localPersonArray;
 
@@ -60,6 +60,12 @@ namespace Lab_1_Project
             return Persons;
         }
 
-        
+        public void ShowList()
+        {
+            foreach (Person p in Persons)
+            {
+                Person.Info(p);
+            }
+        }
     }
 }

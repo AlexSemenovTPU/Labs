@@ -12,7 +12,7 @@ namespace Lab_1_Project
         /// Создание случайной персоны
         /// </summary>
         /// <returns>Экземпляр случайной персоны</returns>
-        public Person randomPerson()
+        static public Person randomPerson()
         {
             var rnd = new Random();
 

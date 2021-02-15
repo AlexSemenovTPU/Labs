@@ -35,11 +35,23 @@ namespace Lab_1_Project
             Gender = gender;
         }
 
-        public string Info =>
-            $"Имя: {Name}; " +
-            $"Фамилия: {Surname}; " +
-            $"Возраст: {Age}; " +
-            $"Пол: {Gender}; ";
+        /// <summary>
+        /// Вывод персоны на экран
+        /// </summary>
+        static public string Info(Person Person)
+        {
+            return $"Имя: {Person.Name}; " +
+            $"Фамилия: {Person.Surname}; " +
+            $"Возраст: {Person.Age}; " +
+            $"Пол: {Person.Gender}; ";
+        }
+            
+
+        static public Person insertPerson(string name, string surname, uint age, Gender gender)
+        {
+            Person Person = new Person(name, surname, age, gender);
+            return Person;
+        }
     }
 
     
