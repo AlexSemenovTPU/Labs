@@ -8,7 +8,6 @@ namespace Lab_1_Project
 {
     public enum Gender
     {
-        Nd,
         Male,
         Female
     }
