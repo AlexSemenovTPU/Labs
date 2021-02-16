@@ -50,7 +50,7 @@ namespace Lab_1_Project
 
             for (int i = 0; i < elementCount; i++)
             {
-                if (i != index)
+                if (i != index - 1)
                 {
                     outputList[indexNumber] = Persons[i];
                     indexNumber++;
@@ -80,15 +80,15 @@ namespace Lab_1_Project
         /// Поиск и вывод персоны по индексу в консоль
         /// </summary>
         /// <returns>Персона согласно индексу</returns>
-        public string SearchByIdnex(int index)
+        public Person SearchByIdnex(int index)
         {
             int elementCount = Count;
 
-            if (elementCount == 0) return "";
-            if (elementCount <= index) return "";
+            if (elementCount == 0) { return new Person("", "", 0, Gender.Male); }
 
-            string searchPerson = Person.Info(Persons[index]);
-            return searchPerson;
+            if (elementCount <= index) { new Person("", "", 0, Gender.Male); }
+
+            return Persons[index - 1];
         }
 
         /// <summary>
