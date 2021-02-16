@@ -34,13 +34,17 @@ namespace Lab_1_Project
 
             Console.WriteLine(personListOne.Count);
 
-            Console.ReadLine();
+            
 
-            string name = "";
-            string surname = "";
-            uint age = 0;
-            Gender gender = Gender.Male;
-            Person.insertPerson(name, surname, age, gender);
+            string name = "Oliver";
+            string surname = "Smith";
+            uint age = 40;
+            string genderInsert = "Female";
+            Person.insertPerson(name, surname, age, genderInsert);
+            personListTwo.Add(Person.insertPerson(name, surname, age, genderInsert));
+            Console.WriteLine(personListTwo.ShowList(personInfo));
+
+            Console.ReadLine();
         }
     }
 }

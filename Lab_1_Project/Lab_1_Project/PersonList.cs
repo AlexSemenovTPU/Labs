@@ -80,7 +80,7 @@ namespace Lab_1_Project
         /// Поиск и вывод персоны по индексу в консоль
         /// </summary>
         /// <returns>Персона согласно индексу</returns>
-        public string IndexSearch(int index)
+        public string SearchByIdnex(int index)
         {
             int elementCount = Count;
 
@@ -90,5 +90,32 @@ namespace Lab_1_Project
             string searchPerson = Person.Info(Persons[index]);
             return searchPerson;
         }
+
+        /// <summary>
+        /// Осуществляет поиск индексов элементов при наличии их в списке
+        /// </summary>
+        /// <returns>Массив индексов, согласно условиям</returns>
+        public uint[] IndexSearch(string name, string surname)
+        {
+            uint[] index = new uint[0];
+            int elementCount = Count;
+
+            for (uint i = 0; i < elementCount; i++)
+            {
+                if (_localPersonArray[i].Name == name)
+                {
+                    Array.Resize<uint>(ref index, index.Length + 1);
+                    index[index.Length - 1] = i;
+                }
+
+                if (_localPersonArray[i].Surname == surname)
+                {
+                    Array.Resize<uint>(ref index, index.Length + 1);
+                    index[index.Length - 1] = i;
+                }
+            }
+            return index;
+        }
+
     }
 }

@@ -46,9 +46,17 @@ namespace Lab_1_Project
             $"Пол: {Person.Gender}; ";
         }
             
-
-        static public Person insertPerson(string name, string surname, uint age, Gender gender)
+        /// <summary>
+        /// Введение персоны с клавиатуры
+        /// </summary>
+        /// <returns>Экземпляр введенной с кдавиатуры персоны</returns>
+        static public Person insertPerson(string name, string surname, uint age, string genderInsert)
         {
+            Gender gender = Gender.Male;
+
+            if (genderInsert == "Male") { gender = Gender.Male; }
+            else { gender = Gender.Female; }
+
             Person Person = new Person(name, surname, age, gender);
             return Person;
         }
