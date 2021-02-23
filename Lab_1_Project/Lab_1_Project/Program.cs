@@ -66,5 +66,25 @@ namespace Lab_1_Project
             Console.WriteLine("Содержимое второго списка:");
             Console.WriteLine(personListTwo.ShowList(personInfo));
         }
+
+        /// <summary>
+        /// Введение персоны с клавиатуры
+        /// </summary>
+        /// <returns>Экземпляр введенной с кдавиатуры персоны</returns>
+        static public Person insertPerson(string name, string surname, uint age, string genderInsert)
+        {
+            Gender gender = Gender.Male;
+
+            if (genderInsert == "Male")
+            {
+                gender = Gender.Male;
+            }
+            else
+            {
+                gender = Gender.Female;
+            }
+
+            return new Person(name, surname, age, gender);
+        }
     }
 }
