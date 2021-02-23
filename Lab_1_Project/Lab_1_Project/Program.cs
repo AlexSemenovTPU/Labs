@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab_1_Project
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            string personInfo = "";
 
             PersonList personListOne = new PersonList();
             PersonList personListTwo = new PersonList();
@@ -24,10 +23,7 @@ namespace Lab_1_Project
 
             Console.ReadLine();
 
-            Console.WriteLine("Содержимое первого списка:");
-            Console.WriteLine(personListOne.ShowList(personInfo));
-            Console.WriteLine("Содержимое второго списка:");
-            Console.WriteLine(personListTwo.ShowList(personInfo));
+            ToConsole(personListOne, personListTwo);
 
             Console.ReadLine();
 
@@ -39,20 +35,14 @@ namespace Lab_1_Project
             Console.WriteLine("Копирование второго человека из первого списка в конец второго:");
             personListTwo.Add(personListOne.SearchByIdnex(2));
 
-            Console.WriteLine("Содержимое первого списка:");
-            Console.WriteLine(personListOne.ShowList(personInfo));
-            Console.WriteLine("Содержимое второго списка:");
-            Console.WriteLine(personListTwo.ShowList(personInfo));
+            ToConsole(personListOne, personListTwo);
 
             Console.ReadLine();
 
             Console.WriteLine("Удаление второго человека из первого списка:");
             personListOne.ElementDelete(2);
 
-            Console.WriteLine("Содержимое первого списка:");
-            Console.WriteLine(personListOne.ShowList(personInfo));
-            Console.WriteLine("Содержимое второго списка:");
-            Console.WriteLine(personListTwo.ShowList(personInfo));
+            ToConsole(personListOne, personListTwo);
 
             Console.ReadLine();
 
@@ -61,13 +51,20 @@ namespace Lab_1_Project
                         
             Console.ReadLine();
 
+            ToConsole(personListOne, personListTwo);
+
+            Console.ReadLine();
+
+        }
+
+        static void ToConsole(PersonList personListOne, PersonList personListTwo)
+        {
+            string personInfo = "";
+
             Console.WriteLine("Содержимое первого списка:");
             Console.WriteLine(personListOne.ShowList(personInfo));
             Console.WriteLine("Содержимое второго списка:");
             Console.WriteLine(personListTwo.ShowList(personInfo));
-
-            Console.ReadLine();
-
         }
     }
 }

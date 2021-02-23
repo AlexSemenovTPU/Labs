@@ -17,7 +17,8 @@ namespace Lab_1_Project
             private set
             {
                 const uint maximumValue = 118;
-                if (value >= maximumValue)
+                const uint minimumValue = 0;
+                if ((value >= maximumValue) || (value <= minimumValue))
                 {
                     throw new ArgumentOutOfRangeException($"{nameof(Age)} должен быть меньше {maximumValue}!");
                 }
@@ -38,12 +39,12 @@ namespace Lab_1_Project
         /// <summary>
         /// Вывод персоны на экран
         /// </summary>
-        static public string Info(Person Person)
+        static public string Info(Person person)
         {
-            return $"Имя: {Person.Name} " +
-            $"Фамилия: {Person.Surname} " +
-            $"Возраст: {Person.Age} " +
-            $"Пол: {Person.Gender}; ";
+            return $"Имя: {person.Name} " +
+            $"Фамилия: {person.Surname} " +
+            $"Возраст: {person.Age} " +
+            $"Пол: {person.Gender}; ";
         }
             
         /// <summary>

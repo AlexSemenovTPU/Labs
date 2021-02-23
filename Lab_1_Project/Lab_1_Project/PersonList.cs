@@ -67,13 +67,18 @@ namespace Lab_1_Project
         public string ShowList(string personInfo)
         {
             int elementCount = Count;
-
-            for (int i = 0; i < elementCount; i++)
+            if (elementCount > 0)
             {
-                personInfo = personInfo + Person.Info(Persons[i]) + "\n";
+                for (int i = 0; i < elementCount; i++)
+                {
+                    personInfo = personInfo + Person.Info(Persons[i]) + "\n";
+                }
+                return personInfo;
             }
-            return personInfo;
-
+            else
+            {
+                return "Список пуст";
+            }
         }
 
         /// <summary>
