@@ -42,22 +42,25 @@ namespace Lab_1_Project
         {
             int elementCount = Count;
 
-            if (elementCount == 0) return Persons;
-            if (elementCount <= index) return Persons;
-
             var outputList = new Person[elementCount - 1];
             int indexNumber = 0;
-
-            for (int i = 0; i < elementCount; i++)
+            if ((elementCount == 0) || (elementCount <= index))
             {
-                if (i != index - 1)
-                {
-                    outputList[indexNumber] = Persons[i];
-                    indexNumber++;
-                }
+                return Persons;
             }
-            _localPersonArray = outputList;
-            return Persons;
+            else
+            {
+                for (int i = 0; i < elementCount; i++)
+                {
+                    if (i != index - 1)
+                    {
+                        outputList[indexNumber] = Persons[i];
+                        indexNumber++;
+                    }
+                }
+                _localPersonArray = outputList;
+                return Persons;
+            }
         }
 
         /// <summary>
@@ -89,11 +92,14 @@ namespace Lab_1_Project
         {
             int elementCount = Count;
 
-            if (elementCount == 0) { return new Person("", "", 0, Gender.Male); }
-
-            if (elementCount <= index) { new Person("", "", 0, Gender.Male); }
-
-            return Persons[index - 1];
+            if ((elementCount == 0) || (elementCount <= index)) 
+            { 
+                return new Person("", "", 0, Gender.Male); 
+            }
+            else
+            {
+                return Persons[index - 1];
+            }
         }
 
         /// <summary>
@@ -107,13 +113,7 @@ namespace Lab_1_Project
 
             for (uint i = 0; i < elementCount; i++)
             {
-                if (_localPersonArray[i].Name == name)
-                {
-                    Array.Resize<uint>(ref index, index.Length + 1);
-                    index[index.Length - 1] = i;
-                }
-
-                if (_localPersonArray[i].Surname == surname)
+                if ((_localPersonArray[i].Name == name) || (_localPersonArray[i].Surname == surname))
                 {
                     Array.Resize<uint>(ref index, index.Length + 1);
                     index[index.Length - 1] = i;
