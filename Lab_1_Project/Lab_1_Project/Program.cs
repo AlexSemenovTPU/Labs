@@ -89,5 +89,57 @@ namespace Lab_1_Project
 
             return new Person(name, surname, age, gender);
         }
+
+        private Person CheckPerson()
+        {
+            string name = "";
+            string surname = "";
+            uint uintage = 0;
+            Gender gender;
+            while (true)
+            {
+                try
+                {
+                    name = "Рома";
+                    Person.CorrectName(name);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                try
+                {
+                    surname = "Логинов";
+                    Person.CorrectName(surname);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                try
+                {
+                    string age = "30";
+                    uintage = Convert.ToUInt32(age);
+                    Person.CorrectAge(uintage);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                string gender = "Male";
+                if (!Enum.IsDefined(typeof(Gender), gender))
+                {
+                    Console.WriteLine("Некорректно введён пол.\n");
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return new Person(name, surname, uintage, gender);
+        }
     }
 }

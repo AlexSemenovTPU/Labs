@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Lab_1_Project
 {
+    //TODO: RSDN
     public class Person
     {
         private string _name;
@@ -29,6 +30,7 @@ namespace Lab_1_Project
                 _surname = CorrectRegister(value);
             } 
         }
+
         private uint _age;
         public uint Age 
         { 
@@ -40,6 +42,7 @@ namespace Lab_1_Project
             }
                 
         }
+
         public Gender Gender { get; set; }
 
         /// <summary>
@@ -60,12 +63,12 @@ namespace Lab_1_Project
         /// <summary>
         /// Вывод персоны на экран
         /// </summary>
-        static public string Info(Person person)
+        public string Info()
         {
-            return $"Имя: {person.Name} " +
-            $"Фамилия: {person.Surname} " +
-            $"Возраст: {person.Age} " +
-            $"Пол: {person.Gender}; ";
+            return $"Имя: {this.Name} " +
+                $"Фамилия: {this.Surname} " +
+                $"Возраст: {this.Age} " +
+                $"Пол: {this.Gender}; ";
         }
 
         /// <summary>
@@ -74,10 +77,11 @@ namespace Lab_1_Project
         /// <param name="name"></param>
         public static void CorrectName(string name)
         {
+            //TODO: Попробовать объединитьs
             Regex pattern = new Regex(@"((^([a-zA-Z])+$))|((^([а-яА-Я])+$))");
             Regex patternDouble = new Regex(@"(^([a-zA-Z])+(\s|-)([a-zA-Z])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$)");
 
-            if (!(pattern.IsMatch(name)|patternDouble.IsMatch(name)))
+            if (!(pattern.IsMatch(name) || patternDouble.IsMatch(name)))
             {
                 throw new ArgumentException("Имя и фамилия могут содержать" +
                     "только русские или английские символы!");
@@ -94,7 +98,8 @@ namespace Lab_1_Project
             const uint minimumValue = 0;
             if ((age >= maximumValue) || (age <= minimumValue))
             {
-                throw new ArgumentOutOfRangeException($"{nameof(Age)} должен быть меньше {maximumValue} или больше {minimumValue}!");
+                throw new ArgumentOutOfRangeException(
+                    $"{nameof(Age)} должен быть меньше {maximumValue} или больше {minimumValue}!");
             }
         }
 

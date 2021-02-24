@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_1_Project
 {
+    //TODO: RSDN
     public class PersonList
     {
         private Person[] _localPersonArray = new Person[0];
@@ -17,12 +18,12 @@ namespace Lab_1_Project
         /// <summary>
         /// Добавление нового элемента
         /// </summary>
-        public void Add(Person newelement)
+        public void Add(Person newElement)
         {
             int elementCount = Count;
 
             Array.Resize(ref _localPersonArray, Count + 1);
-            _localPersonArray[elementCount] = newelement;
+            _localPersonArray[elementCount] = newElement;
         }
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace Lab_1_Project
             Array.Resize(ref _localPersonArray, 0);
         }
 
+        //TODO: Не возвращать список персон
         /// <summary>
         /// Удаление элемента в списке
         /// </summary>
@@ -84,6 +86,7 @@ namespace Lab_1_Project
             }
         }
 
+        //TODO:rename
         /// <summary>
         /// Поиск и вывод персоны по индексу в консоль
         /// </summary>
@@ -94,6 +97,7 @@ namespace Lab_1_Project
 
             if ((elementCount == 0) || (elementCount <= index)) 
             { 
+                //TODO: Упасть и обработать снаружи
                 return new Person("", "", 0, Gender.Male); 
             }
             else
@@ -113,7 +117,8 @@ namespace Lab_1_Project
 
             for (uint i = 0; i < elementCount; i++)
             {
-                if ((_localPersonArray[i].Name == name) || (_localPersonArray[i].Surname == surname))
+                if ((_localPersonArray[i].Name == name) 
+                    || (_localPersonArray[i].Surname == surname))
                 {
                     Array.Resize<uint>(ref index, index.Length + 1);
                     index[index.Length - 1] = i;
