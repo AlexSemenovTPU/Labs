@@ -36,7 +36,7 @@ namespace Lab_1_Project
             personListTwo.Add(personListOne.SearchByIdnex(2));
 
             ToConsole(personListOne, personListTwo);
-
+            
             Console.ReadLine();
 
             Console.WriteLine("Удаление второго человека из первого списка:");
@@ -57,6 +57,9 @@ namespace Lab_1_Project
 
         }
 
+        /// <summary>
+        /// Вывод списков персон в консоль
+        /// </summary>
         static void ToConsole(PersonList personListOne, PersonList personListTwo)
         {
             string personInfo = "";
