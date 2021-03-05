@@ -76,7 +76,7 @@ namespace Lab_1_Project
         /// Введение персоны с клавиатуры
         /// </summary>
         /// <returns>Экземпляр введенной с кдавиатуры персоны</returns>
-        static public Person insertPerson(string name, string surname, uint age, string genderKey)
+        static public Person insertPerson(string name, string surname, int age, string genderKey)
         {
             Gender gender = Gender.Male;
 
@@ -97,7 +97,7 @@ namespace Lab_1_Project
             bool localeTrigger;
             string name = "";
             string surname = "";
-            uint uintage = 0;
+            int intage = 0;
             Gender gender = Gender.Female;
             do
             {
@@ -122,48 +122,77 @@ namespace Lab_1_Project
                 localeTrigger = true;
                 try
                 {
-                    surname = "Логинов";
+                    Console.WriteLine("Введите фамилию:");
+                    surname = Console.ReadLine();
                     Person.CorrectName(surname);
                 }
                 catch (ArgumentException ex)
                 {
                     Console.WriteLine(ex.Message);
                     localeTrigger = false;
+                    Console.WriteLine("Попробуйте ещё раз.");
                 }
             }
             while (!localeTrigger);
 
             do
             {
+                localeTrigger = true;
+                Console.WriteLine("Введите возраст:");
+                string age = Console.ReadLine();
+                if (!Int32.TryParse(age, out intage))
+                {
+                    Console.WriteLine("Возраст должен быть числом.");
+                    localeTrigger = false;
+                    Console.WriteLine("Попробуйте ещё раз.");
+                    continue;
+                }
                 try
                 {
-                    string age = "30";
-                    uintage = Convert.ToUInt32(age);
-                    Person.CorrectAge(uintage);
+                    Console.WriteLine("Введите возраст:");
+                    Person.CorrectAge(intage);
                 }
                 catch (ArgumentException ex)
                 {
-                        Console.WriteLine(ex.Message);
-                        localeTrigger = false;
+                    Console.WriteLine(ex.Message);
+                    localeTrigger = false;
+                    Console.WriteLine("Попробуйте ещё раз.");
                 }
             }
             while (!localeTrigger);
 
             do
             {
-                string insertGender = "Male";
-                if (!Enum.IsDefined(typeof(Gender), insertGender))
+                localeTrigger = true;
+
+                Console.WriteLine("Выберете пол Male или Female");
+                Console.WriteLine("Для этого введите M/F или М/Ж");
+                string insertGender = Console.ReadLine();
+                insertGender = insertGender.ToUpper();
+                switch (insertGender)
                 {
-                    Console.WriteLine("Некорректно введён пол.\n");
-                }
-                else
-                {
-                    gender = (Gender)Enum.Parse(typeof(Gender), insertGender, true);
-                    break;
+                    case "M":
+                        gender = Gender.Male;
+                        break;
+                    case "М":
+                        gender = Gender.Male;
+                        break;
+                    case "F":
+                        gender = Gender.Female;
+                        break;
+                    case "Ж":
+                        gender = Gender.Female;
+                        break;
+                    default:
+                        Console.WriteLine("Вы нажали неизвестную букву");
+                        localeTrigger = false;
+                        break;
                 }
             }
             while (!localeTrigger);
-            return new Person(name, surname, uintage, gender);
+            return new Person(name, surname, intage, gender);
         }
+
     }
 }
+

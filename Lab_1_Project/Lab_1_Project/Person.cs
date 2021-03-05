@@ -51,12 +51,12 @@ namespace Lab_1_Project
         /// <summary>
         /// Возраст персоны
         /// </summary>
-        private uint _age;
+        private int _age;
 
         /// <summary>
         /// Возраст персоны
         /// </summary>
-        public uint Age 
+        public int Age 
         { 
             get => _age;
             private set
@@ -91,7 +91,7 @@ namespace Lab_1_Project
         /// <param name="surnme"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
-        public Person(string name, string surnme, uint age, Gender gender)
+        public Person(string name, string surnme, int age, Gender gender)
         {
             Name = name;
             Surname = surnme;
@@ -130,14 +130,13 @@ namespace Lab_1_Project
         /// Проверка возраста на соответствие требованиям
         /// </summary>
         /// <param name="age"></param>
-        public static void CorrectAge(uint age)
+        public static void CorrectAge(int age)
         {
-            const uint maximumValue = 118;
-            const uint minimumValue = 0;
-            if ((age >= maximumValue) || (age <= minimumValue))
+            
+            if ((age >= Const.maxAge) || (age <= Const.minAge))
             {
-                throw new ArgumentOutOfRangeException(
-                    $"{nameof(Age)} должен быть меньше {maximumValue} или больше {minimumValue}!");
+                throw new ArgumentException(
+                    $"Возраст должен быть меньше {Const.maxAge} или больше {Const.minAge}!");
             }
         }
 
@@ -151,6 +150,11 @@ namespace Lab_1_Project
             return word.Substring(0, 1).ToUpper() +
                 word.Substring(1).ToLower();
         }
+    }
+    public class Const
+    {
+        public const int maxAge = 118;
+        public const int minAge = 0;
     }
 
     

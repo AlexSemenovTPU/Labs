@@ -94,7 +94,7 @@ namespace Lab_1_Project
             string surname = surnames[_rnd.Next(0, surnames.Count)];
 
             //TODO: minage +
-            uint age = Convert.ToUInt32(_rnd.Next(1, 118));
+            int age = Convert.ToInt32(_rnd.Next(Const.minAge, Const.maxAge));
 
             return new Person(name, surname, age, gender);
         }

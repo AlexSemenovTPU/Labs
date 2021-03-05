@@ -62,7 +62,7 @@ namespace Lab_1_Project
             int indexNumber = 0;
             if ((elementCount == 0) || (elementCount <= index))
             {
-                //return "Список пуст или отсутствует индекс";
+                throw new ArgumentException("Список пуст или такой индекс отсутствует!");
             }
             else
             {
@@ -103,7 +103,7 @@ namespace Lab_1_Project
 
         //TODO:rename +
         /// <summary>
-        /// Поиск и вывод персоны по индексу в консоль
+        /// Поиск персоны по индексу
         /// </summary>
         /// <returns>Персона согласно индексу</returns>
         public Person SearchByIndex(int index)
@@ -111,9 +111,9 @@ namespace Lab_1_Project
             int elementCount = Count;
 
             if ((elementCount == 0) || (elementCount <= index)) 
-            { 
-                //TODO: Упасть и обработать снаружи
-                return new Person("", "", 0, Gender.Male); 
+            {
+                //TODO: Упасть и обработать снаружи ?
+                throw new ArgumentException("Список пуст или такой индекс отсутствует!");
             }
             else
             {
