@@ -117,7 +117,8 @@ namespace Lab_1_Project
         public static void CorrectName(string name)
         {
             //TODO: Попробовать объединитьs +
-            Regex pattern = new Regex(@"((^([a-zA-Z])+$)|(^([a-zA-Z])+(\s|-)([a-zA-Z])+$))|((^([а-яА-Я])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$))");
+            Regex pattern = new Regex(@"((^([a-zA-Z])+$)|(^([a-zA-Z])+(\s|-)([a-zA-Z])+$))
+            |((^([а-яА-Я])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$))");
 
             if (!pattern.IsMatch(name))
             {

@@ -49,12 +49,12 @@ namespace Lab_1_Project
             Array.Resize(ref _localPersonArray, 0);
         }
 
-        //TODO: Не возвращать список персон
+        //TODO: Не возвращать список персон +
         /// <summary>
         /// Удаление элемента в списке
         /// </summary>
         /// <returns>Отредактированный список</returns>
-        public Person[] ElementDelete(int index)
+        public void ElementDelete(int index)
         {
             int elementCount = Count;
 
@@ -62,7 +62,7 @@ namespace Lab_1_Project
             int indexNumber = 0;
             if ((elementCount == 0) || (elementCount <= index))
             {
-                return Persons;
+                return "Список пуст или отсутствует индекс";
             }
             else
             {
@@ -82,16 +82,18 @@ namespace Lab_1_Project
         /// Метод вывода списка в консоль
         /// </summary>
         /// <returns>Список персон построчно</returns>
-        public string ShowList(string personInfo)
+        public string ShowList()
         {
+            string outputList = "";
             int elementCount = Count;
+
             if (elementCount > 0)
             {
                 for (int i = 0; i < elementCount; i++)
                 {
-                    personInfo = personInfo + Person.Info(Persons[i]) + "\n";
+                    outputList = outputList + Persons[i].Info() + "\n";
                 }
-                return personInfo;
+                return outputList;
             }
             else
             {
@@ -99,12 +101,12 @@ namespace Lab_1_Project
             }
         }
 
-        //TODO:rename
+        //TODO:rename +
         /// <summary>
         /// Поиск и вывод персоны по индексу в консоль
         /// </summary>
         /// <returns>Персона согласно индексу</returns>
-        public Person SearchByIdnex(int index)
+        public Person SearchByIndex(int index)
         {
             int elementCount = Count;
 

@@ -33,7 +33,7 @@ namespace Lab_1_Project
             Console.ReadLine();
 
             Console.WriteLine("Копирование второго человека из первого списка в конец второго:");
-            personListTwo.Add(personListOne.SearchByIdnex(2));
+            personListTwo.Add(personListOne.SearchByIndex(2));
 
             ToConsole(personListOne, personListTwo);
             
@@ -62,23 +62,21 @@ namespace Lab_1_Project
         /// </summary>
         static void ToConsole(PersonList personListOne, PersonList personListTwo)
         {
-            string personInfo = "";
-
             Console.WriteLine("Содержимое первого списка:");
-            Console.WriteLine(personListOne.ShowList(personInfo));
+            Console.WriteLine(personListOne.ShowList());
             Console.WriteLine("Содержимое второго списка:");
-            Console.WriteLine(personListTwo.ShowList(personInfo));
+            Console.WriteLine(personListTwo.ShowList());
         }
 
         /// <summary>
         /// Введение персоны с клавиатуры
         /// </summary>
         /// <returns>Экземпляр введенной с кдавиатуры персоны</returns>
-        static public Person insertPerson(string name, string surname, uint age, string genderInsert)
+        static public Person insertPerson(string name, string surname, uint age, string genderKey)
         {
             Gender gender = Gender.Male;
 
-            if (genderInsert == "Male")
+            if (genderKey == "Male")
             {
                 gender = Gender.Male;
             }
