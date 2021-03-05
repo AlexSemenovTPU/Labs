@@ -6,13 +6,27 @@ using System.Threading.Tasks;
 
 namespace Lab_1_Project
 {
-    //TODO: RSDN
+    //TODO: RSDN+
+
+    /// <summary>
+    /// Класс описывающий абстракцию списка,
+    /// содержащего обьекты класса Person
+    /// </summary>
     public class PersonList
     {
+        /// <summary>
+        /// Массив переменных типа Person
+        /// </summary>
         private Person[] _localPersonArray = new Person[0];
 
+        /// <summary>
+        /// Массив переменных типа Person
+        /// </summary>
         public Person[] Persons => _localPersonArray;
 
+        /// <summary>
+        /// Колличество персон в списке
+        /// </summary>
         public int Count => _localPersonArray.Length;
 
         /// <summary>
@@ -61,7 +75,6 @@ namespace Lab_1_Project
                     }
                 }
                 _localPersonArray = outputList;
-                return Persons;
             }
         }
 

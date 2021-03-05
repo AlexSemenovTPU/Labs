@@ -7,10 +7,20 @@ using System.Text.RegularExpressions;
 
 namespace Lab_1_Project
 {
-    //TODO: RSDN
+    //TODO: RSDN+
+    /// <summary>
+    /// Класс персон
+    /// </summary>
     public class Person
     {
+        /// <summary>
+        /// Имя персоны
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// Имя персоны
+        /// </summary>
         public string Name 
         { 
             get => _name;
@@ -20,7 +30,14 @@ namespace Lab_1_Project
                 _name = CorrectRegister(value);
             } 
         }
+        /// <summary>
+        /// Фамилия персоны
+        /// </summary>
         private string _surname;
+
+        /// <summary>
+        /// Фамилия персоны
+        /// </summary>
         public string Surname 
         { 
             get => _surname;
@@ -31,7 +48,14 @@ namespace Lab_1_Project
             } 
         }
 
+        /// <summary>
+        /// Возраст персоны
+        /// </summary>
         private uint _age;
+
+        /// <summary>
+        /// Возраст персоны
+        /// </summary>
         public uint Age 
         { 
             get => _age;
@@ -43,7 +67,22 @@ namespace Lab_1_Project
                 
         }
 
-        public Gender Gender { get; set; }
+        /// <summary>
+        /// Пол персоны
+        /// </summary>
+        private Gender _gender;
+
+        /// <summary>
+        /// Пол персоны
+        /// </summary>
+        public Gender Gender 
+        { 
+            get => _gender; 
+            private set
+            {
+                _gender = value;
+            }
+        }
 
         /// <summary>
         /// Конструктор класса Person
@@ -77,11 +116,10 @@ namespace Lab_1_Project
         /// <param name="name"></param>
         public static void CorrectName(string name)
         {
-            //TODO: Попробовать объединитьs
-            Regex pattern = new Regex(@"((^([a-zA-Z])+$))|((^([а-яА-Я])+$))");
-            Regex patternDouble = new Regex(@"(^([a-zA-Z])+(\s|-)([a-zA-Z])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$)");
+            //TODO: Попробовать объединитьs +
+            Regex pattern = new Regex(@"((^([a-zA-Z])+$)|(^([a-zA-Z])+(\s|-)([a-zA-Z])+$))|((^([а-яА-Я])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$))");
 
-            if (!(pattern.IsMatch(name) || patternDouble.IsMatch(name)))
+            if (!pattern.IsMatch(name))
             {
                 throw new ArgumentException("Имя и фамилия могут содержать" +
                     "только русские или английские символы!");

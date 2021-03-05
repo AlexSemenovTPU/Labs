@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab_1_Project
 {
-    //TODO: RSDN
+    //TODO: RSDN+
+    /// <summary>
+    /// Пол персоны
+    /// </summary>
     public enum Gender
     {
         Male,

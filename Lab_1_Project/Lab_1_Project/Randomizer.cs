@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Lab_1_Project
 {
+    /// <summary>
+    /// Класс для формироания рандомной персоны
+    /// </summary>
     public class Randomizer
     {
-
+        /// <summary>
+        /// Приватный класс Random
+        /// </summary>
         private static Random _rnd = new Random();
 
         /// <summary>
@@ -17,6 +22,9 @@ namespace Lab_1_Project
         /// <returns>Экземпляр случайной персоны</returns>
         static public Person randomPerson()
         {
+            /// <summary>
+            /// Лист мужских имен
+            /// </summary>
             var maleNames = new List<string>()
             {
                 "Oliver",
@@ -30,6 +38,9 @@ namespace Lab_1_Project
                 "James",
                 "William"
             };
+            /// <summary>
+            /// Лист женских имен
+            /// </summary>
             var femaleNames = new List<string>()
             {
                 "Melanie",
@@ -43,6 +54,9 @@ namespace Lab_1_Project
                 "Victoria",
                 "Irene"
             };
+            /// <summary>
+            /// Лист фамилий
+            /// </summary>
             var surnames = new List<string>()
             {
                 "Smith",
@@ -79,8 +93,8 @@ namespace Lab_1_Project
 
             string surname = surnames[_rnd.Next(0, surnames.Count)];
 
-            //TODO: minage
-            uint age = Convert.ToUInt32(_rnd.Next(18, 118));
+            //TODO: minage +
+            uint age = Convert.ToUInt32(_rnd.Next(1, 118));
 
             return new Person(name, surname, age, gender);
         }
