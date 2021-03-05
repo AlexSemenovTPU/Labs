@@ -51,6 +51,10 @@ namespace Lab_1_Project
                         
             Console.ReadLine();
 
+            personListOne.Add(CheckPerson());
+
+            Console.ReadLine();
+
             ToConsole(personListOne, personListTwo);
 
             Console.ReadLine();
@@ -88,24 +92,34 @@ namespace Lab_1_Project
             return new Person(name, surname, age, gender);
         }
 
-        private Person CheckPerson()
+        private static Person CheckPerson()
         {
+            bool localeTrigger;
             string name = "";
             string surname = "";
             uint uintage = 0;
-            Gender gender;
-            while (true)
+            Gender gender = Gender.Female;
+            do
             {
+                localeTrigger = true;
                 try
                 {
-                    name = "Рома";
+                    Console.WriteLine("Введите имя:");
+                    name = Console.ReadLine();
                     Person.CorrectName(name);
                 }
                 catch (ArgumentException ex)
                 {
                     Console.WriteLine(ex.Message);
+                    localeTrigger = false;
+                    Console.WriteLine("Попробуйте ещё раз.");
                 }
+            }
+            while (!localeTrigger);
 
+            do
+            {
+                localeTrigger = true;
                 try
                 {
                     surname = "Логинов";
@@ -114,8 +128,13 @@ namespace Lab_1_Project
                 catch (ArgumentException ex)
                 {
                     Console.WriteLine(ex.Message);
+                    localeTrigger = false;
                 }
+            }
+            while (!localeTrigger);
 
+            do
+            {
                 try
                 {
                     string age = "30";
@@ -124,19 +143,26 @@ namespace Lab_1_Project
                 }
                 catch (ArgumentException ex)
                 {
-                    Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message);
+                        localeTrigger = false;
                 }
+            }
+            while (!localeTrigger);
 
-                string gender = "Male";
-                if (!Enum.IsDefined(typeof(Gender), gender))
+            do
+            {
+                string insertGender = "Male";
+                if (!Enum.IsDefined(typeof(Gender), insertGender))
                 {
                     Console.WriteLine("Некорректно введён пол.\n");
                 }
                 else
                 {
+                    gender = (Gender)Enum.Parse(typeof(Gender), insertGender, true);
                     break;
                 }
             }
+            while (!localeTrigger);
             return new Person(name, surname, uintage, gender);
         }
     }

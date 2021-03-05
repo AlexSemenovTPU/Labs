@@ -62,7 +62,7 @@ namespace Lab_1_Project
             int indexNumber = 0;
             if ((elementCount == 0) || (elementCount <= index))
             {
-                return "Список пуст или отсутствует индекс";
+                //return "Список пуст или отсутствует индекс";
             }
             else
             {
