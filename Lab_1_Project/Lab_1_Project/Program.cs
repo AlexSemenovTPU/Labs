@@ -165,22 +165,22 @@ namespace Lab_1_Project
             {
                 localeTrigger = true;
 
-                Console.WriteLine("Выберете пол Male или Female");
-                Console.WriteLine("Для этого введите M/F или М/Ж");
+                Console.WriteLine("Выберете пол Мужской или Женский");
+                Console.WriteLine("Для этого введите М/Ж");
                 string insertGender = Console.ReadLine();
                 insertGender = insertGender.ToUpper();
                 switch (insertGender)
                 {
-                    case "M":
-                        gender = Gender.Male;
-                        break;
                     case "М":
                         gender = Gender.Male;
                         break;
-                    case "F":
+                    case "Ж":
                         gender = Gender.Female;
                         break;
-                    case "Ж":
+                    case "м":
+                        gender = Gender.Male;
+                        break;
+                    case "ж":
                         gender = Gender.Female;
                         break;
                     default:

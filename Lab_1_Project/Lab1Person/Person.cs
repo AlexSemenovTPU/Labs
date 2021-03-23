@@ -104,10 +104,21 @@ namespace Lab_1_Project
         /// </summary>
         public string Info()
         {
+            string outGender;
+
+            if (this.Gender == Gender.Male)
+            {
+                outGender = "Мужской";
+            }
+            else
+            {
+               outGender = "Женский";
+            }
+
             return $"Имя: {this.Name} " +
                 $"Фамилия: {this.Surname} " +
                 $"Возраст: {this.Age} " +
-                $"Пол: {this.Gender}; ";
+                $"Пол: {outGender}; ";
         }
 
         /// <summary>
@@ -117,7 +128,7 @@ namespace Lab_1_Project
         public static void CorrectName(string name)
         {
             //TODO: Попробовать объединитьs +
-            Regex pattern = new Regex(@"((^([a-zA-Z])+$)|(^([a-zA-Z])+(\s|-)([a-zA-Z])+$))|((^([а-яА-Я])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$))");
+            Regex pattern = new Regex(@"((^([а-яА-Я])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$))");
 
             if (!pattern.IsMatch(name))
             {
@@ -151,6 +162,9 @@ namespace Lab_1_Project
                 word.Substring(1).ToLower();
         }
     }
+    /// <summary>
+    /// Глабальные переменные
+    /// </summary>
     public class Const
     {
         public const int maxAge = 118;
@@ -159,3 +173,6 @@ namespace Lab_1_Project
 
     
 }
+
+
+//Regex pattern = new Regex(@"((^([a-zA-Z])+$)|(^([a-zA-Z])+(\s|-)([a-zA-Z])+$))|((^([а-яА-Я])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$))");

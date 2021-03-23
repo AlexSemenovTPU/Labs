@@ -27,48 +27,48 @@ namespace Lab_1_Project
             /// </summary>
             var maleNames = new List<string>()
             {
-                "Oliver",
-                "Jack",
-                "Harry",
-                "Jacob",
-                "Charley",
-                "Thomas",
-                "George",
-                "Oscar",
-                "James",
-                "William"
+                "Алексей",
+                "Александр",
+                "Дмитрий",
+                "Леонид",
+                "Роман",
+                "Евгений",
+                "Иван",
+                "Максим",
+                "Захар",
+                "Тимофей"
             };
             /// <summary>
             /// Лист женских имен
             /// </summary>
             var femaleNames = new List<string>()
             {
-                "Melanie",
-                "Florence",
-                "Agatha",
-                "Zoe",
-                "Rebecca",
-                "Ruth",
-                "Barbara",
-                "Amanda",
-                "Victoria",
-                "Irene"
+                "Анастасия",
+                "Анна",
+                "Мария",
+                "Елена",
+                "Дарья",
+                "Алина",
+                "Ирина",
+                "Екатерина",
+                "Арина",
+                "Полина"
             };
             /// <summary>
             /// Лист фамилий
             /// </summary>
             var surnames = new List<string>()
             {
-                "Smith",
-                "Johnson",
-                "Williams",
-                "Jones",
-                "Brown",
-                "Davis",
-                "Miller",
-                "Wilson",
-                "Moore",
-                "Taylor"
+                "Семенов",
+                "Логинов",
+                "Иванов",
+                "Смирнов",
+                "Новиков",
+                "Крылов",
+                "Павлов",
+                "Голубев",
+                "Беляев",
+                "Тарасов"
             };
             
             Gender gender;
@@ -92,6 +92,11 @@ namespace Lab_1_Project
             }
 
             string surname = surnames[_rnd.Next(0, surnames.Count)];
+            
+            if (gender == Gender.Female)
+            {
+                surname = surname + "а";
+            }
 
             //TODO: minage +
             int age = Convert.ToInt32(_rnd.Next(Const.minAge, Const.maxAge));
