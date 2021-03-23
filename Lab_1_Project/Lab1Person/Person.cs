@@ -24,7 +24,7 @@ namespace Lab_1_Project
         public string Name 
         { 
             get => _name;
-            private set
+            set
             {
                 CorrectName(value);
                 _name = CorrectRegister(value);
@@ -41,7 +41,7 @@ namespace Lab_1_Project
         public string Surname 
         { 
             get => _surname;
-            private set
+            set
             {
                 CorrectName(value);
                 _surname = CorrectRegister(value);
@@ -59,7 +59,7 @@ namespace Lab_1_Project
         public int Age 
         { 
             get => _age;
-            private set
+            set
             {
                 CorrectAge(value);
                 _age = value;
@@ -77,8 +77,8 @@ namespace Lab_1_Project
         /// </summary>
         public Gender Gender 
         { 
-            get => _gender; 
-            private set
+            get => _gender;
+            set
             {
                 _gender = value;
             }
@@ -97,6 +97,13 @@ namespace Lab_1_Project
             Surname = surnme;
             Age = age;
             Gender = gender;
+        }
+
+        /// <summary>
+        /// Конструктор с дефолтами.
+        /// </summary>
+        public Person() : this("Неизвестно", "Неизвестно", 1, Gender.Male)
+        {
         }
 
         /// <summary>
@@ -143,6 +150,7 @@ namespace Lab_1_Project
         /// <param name="age"></param>
         public static void CorrectAge(int age)
         {
+
             
             if ((age >= Const.maxAge) || (age <= Const.minAge))
             {

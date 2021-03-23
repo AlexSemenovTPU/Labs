@@ -51,7 +51,7 @@ namespace Lab_1_Project
                         
             Console.ReadLine();
 
-            personListOne.Add(CheckPerson());
+            personListOne.Add(insertPerson());
 
             Console.ReadLine();
 
@@ -73,124 +73,95 @@ namespace Lab_1_Project
         }
 
         /// <summary>
+        /// Проверка корректности вводимых параметров.
+        /// </summary>
+        /// <param name="outputMessage">Параметр для проверки.</param>
+        /// <param name="validationAction">Метод проверки.</param>
+        private static void ValidateInput(string outputMessage, Action validationAction)
+        {
+            while(true)
+            {
+                try
+                {
+                    Console.WriteLine(outputMessage);
+                    validationAction.Invoke();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"{ex.Message} Попробуйте снова.");
+                }
+            }
+        }
+
+        /// <summary>
         /// Введение персоны с клавиатуры
         /// </summary>
         /// <returns>Экземпляр введенной с кдавиатуры персоны</returns>
-        static public Person insertPerson(string name, string surname, int age, string genderKey)
+        private static Person insertPerson()
         {
-            Gender gender = Gender.Male;
 
-            if (genderKey == "Male")
+            Person person = new Person();
+            Console.WriteLine("Ввдедите данные о новой персоне");
+            var validationAction = new List<Tuple<string, Action>>()
             {
-                gender = Gender.Male;
-            }
-            else
+                new Tuple<string, Action>
+                (
+                    "Имя:",
+                    () =>
+                    {
+                        person.Name = Console.ReadLine();
+                    }
+                ),
+                new Tuple<string, Action>
+                (
+                    "Фамилия:",
+                    () =>
+                    {
+                        person.Surname = Console.ReadLine();
+                    }
+                ),
+                new Tuple<string, Action>
+                (
+                    "Возраст:",
+                    () =>
+                    {
+                        try
+                        {
+                            person.Age  = Int32.Parse(Console.ReadLine());
+                        }
+                        catch
+                        {
+                            throw new ArgumentException("Возраст должен быть числом!");
+                        }
+                    }
+                ),
+                new Tuple<string, Action>
+                (
+                    "Пол:",
+                    () =>
+                    {
+                        switch (Console.ReadLine())
+                        {
+                            case "М":
+                            case "м":
+                                person.Gender = Gender.Male;
+                                break;
+                            case "Ж":
+                            case "ж":
+                                person.Gender = Gender.Female;
+                                break;
+                            default:
+                                throw new ArgumentException("Вам нужно выбрать 'М' или 'Ж'");
+                        }
+                    }
+                ),
+            };
+            foreach (var action in validationAction)
             {
-                gender = Gender.Female;
+                ValidateInput(action.Item1, action.Item2);
             }
-
-            return new Person(name, surname, age, gender);
-        }
-
-        private static Person CheckPerson()
-        {
-            bool localeTrigger;
-            string name = "";
-            string surname = "";
-            int intage = 0;
-            Gender gender = Gender.Female;
-            do
-            {
-                localeTrigger = true;
-                try
-                {
-                    Console.WriteLine("Введите имя:");
-                    name = Console.ReadLine();
-                    Person.CorrectName(name);
-                }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    localeTrigger = false;
-                    Console.WriteLine("Попробуйте ещё раз.");
-                }
-            }
-            while (!localeTrigger);
-
-            do
-            {
-                localeTrigger = true;
-                try
-                {
-                    Console.WriteLine("Введите фамилию:");
-                    surname = Console.ReadLine();
-                    Person.CorrectName(surname);
-                }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    localeTrigger = false;
-                    Console.WriteLine("Попробуйте ещё раз.");
-                }
-            }
-            while (!localeTrigger);
-
-            do
-            {
-                localeTrigger = true;
-                Console.WriteLine("Введите возраст:");
-                string age = Console.ReadLine();
-                if (!Int32.TryParse(age, out intage))
-                {
-                    Console.WriteLine("Возраст должен быть числом.");
-                    localeTrigger = false;
-                    Console.WriteLine("Попробуйте ещё раз.");
-                    continue;
-                }
-                try
-                {
-                    Console.WriteLine("Введите возраст:");
-                    Person.CorrectAge(intage);
-                }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    localeTrigger = false;
-                    Console.WriteLine("Попробуйте ещё раз.");
-                }
-            }
-            while (!localeTrigger);
-
-            do
-            {
-                localeTrigger = true;
-
-                Console.WriteLine("Выберете пол Мужской или Женский");
-                Console.WriteLine("Для этого введите М/Ж");
-                string insertGender = Console.ReadLine();
-                insertGender = insertGender.ToUpper();
-                switch (insertGender)
-                {
-                    case "М":
-                        gender = Gender.Male;
-                        break;
-                    case "Ж":
-                        gender = Gender.Female;
-                        break;
-                    case "м":
-                        gender = Gender.Male;
-                        break;
-                    case "ж":
-                        gender = Gender.Female;
-                        break;
-                    default:
-                        Console.WriteLine("Вы нажали неизвестную букву");
-                        localeTrigger = false;
-                        break;
-                }
-            }
-            while (!localeTrigger);
-            return new Person(name, surname, intage, gender);
+            return person;
         }
 
     }
