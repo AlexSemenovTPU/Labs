@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Lab_1_Project
 {
-    //TODO: RSDN+
-
     /// <summary>
     /// Класс описывающий абстракцию списка,
     /// содержащего обьекты класса Person
@@ -49,7 +47,6 @@ namespace Lab_1_Project
             Array.Resize(ref _localPersonArray, 0);
         }
 
-        //TODO: Не возвращать список персон +
         /// <summary>
         /// Удаление элемента в списке
         /// </summary>
@@ -101,7 +98,6 @@ namespace Lab_1_Project
             }
         }
 
-        //TODO:rename +
         /// <summary>
         /// Поиск персоны по индексу
         /// </summary>
@@ -112,7 +108,6 @@ namespace Lab_1_Project
 
             if ((elementCount == 0) || (elementCount <= index)) 
             {
-                //TODO: Упасть и обработать снаружи ?
                 throw new ArgumentException("Список пуст или такой индекс отсутствует!");
             }
             else

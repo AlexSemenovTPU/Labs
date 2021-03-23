@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 
 namespace Lab_1_Project
 {
-    //TODO: RSDN+
     /// <summary>
     /// Класс персон
     /// </summary>
@@ -30,6 +29,7 @@ namespace Lab_1_Project
                 _name = CorrectRegister(value);
             } 
         }
+
         /// <summary>
         /// Фамилия персоны
         /// </summary>
@@ -102,25 +102,17 @@ namespace Lab_1_Project
         /// <summary>
         /// Конструктор с дефолтами.
         /// </summary>
-        public Person() : this("Неизвестно", "Неизвестно", 1, Gender.Male)
-        {
-        }
+        public Person() : this("Неизвестно", "Неизвестно", 0, Gender.Male) { }
 
         /// <summary>
         /// Вывод персоны на экран
         /// </summary>
         public string Info()
         {
-            string outGender;
-
-            if (this.Gender == Gender.Male)
-            {
-                outGender = "Мужской";
-            }
-            else
-            {
-               outGender = "Женский";
-            }
+            string outGender = 
+                this.Gender == Gender.Male
+                    ? "Мужской"
+                    : "Женский";
 
             return $"Имя: {this.Name} " +
                 $"Фамилия: {this.Surname} " +
@@ -134,13 +126,12 @@ namespace Lab_1_Project
         /// <param name="name"></param>
         public static void CorrectName(string name)
         {
-            //TODO: Попробовать объединитьs +
             Regex pattern = new Regex(@"((^([а-яА-Я])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$))");
 
             if (!pattern.IsMatch(name))
             {
                 throw new ArgumentException("Имя и фамилия могут содержать" +
-                    "только русские или английские символы!");
+                    "только русские символы!");
             }
         }
 
@@ -150,12 +141,10 @@ namespace Lab_1_Project
         /// <param name="age"></param>
         public static void CorrectAge(int age)
         {
-
-            
-            if ((age >= Const.maxAge) || (age <= Const.minAge))
+            if ((age < MinAge) || (age > MaxAge))
             {
                 throw new ArgumentException(
-                    $"Возраст должен быть меньше {Const.maxAge} или больше {Const.minAge}!");
+                    $"Возраст должен быть меньше {MaxAge} или больше {MinAge}!");
             }
         }
 
@@ -169,17 +158,11 @@ namespace Lab_1_Project
             return word.Substring(0, 1).ToUpper() +
                 word.Substring(1).ToLower();
         }
-    }
-    /// <summary>
-    /// Глабальные переменные
-    /// </summary>
-    public class Const
-    {
-        public const int maxAge = 118;
-        public const int minAge = 0;
-    }
 
-    
+        public const int MaxAge = 118;
+        
+        public const int MinAge = 0;
+    }    
 }
 
 

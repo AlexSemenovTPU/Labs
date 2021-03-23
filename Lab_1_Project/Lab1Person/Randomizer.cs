@@ -11,6 +11,7 @@ namespace Lab_1_Project
     /// </summary>
     public class Randomizer
     {
+        //TODO: RSDN
         /// <summary>
         /// Приватный класс Random
         /// </summary>
@@ -38,6 +39,7 @@ namespace Lab_1_Project
                 "Захар",
                 "Тимофей"
             };
+
             /// <summary>
             /// Лист женских имен
             /// </summary>
@@ -54,6 +56,7 @@ namespace Lab_1_Project
                 "Арина",
                 "Полина"
             };
+            
             /// <summary>
             /// Лист фамилий
             /// </summary>
@@ -98,8 +101,7 @@ namespace Lab_1_Project
                 surname = surname + "а";
             }
 
-            //TODO: minage +
-            int age = Convert.ToInt32(_rnd.Next(Const.minAge, Const.maxAge));
+            int age = Convert.ToInt32(_rnd.Next(Person.MinAge, Person.MaxAge));
 
             return new Person(name, surname, age, gender);
         }

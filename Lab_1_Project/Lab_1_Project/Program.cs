@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab_1_Project
 {
+    //TODO: RSDN+
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
 
             PersonList personListOne = new PersonList();
@@ -32,9 +33,18 @@ namespace Lab_1_Project
 
             Console.ReadLine();
 
-            Console.WriteLine("Копирование второго человека из первого списка в конец второго:");
-            personListTwo.Add(personListOne.SearchByIndex(2));
+            Console.WriteLine();
 
+            var validateAction = new Action(() => 
+            {
+                var foundPerson = personListOne.SearchByIndex(2);
+                personListTwo.Add(foundPerson);
+            });
+
+            CheckInput("Копирование второго человека из первого списка в конец второго:", 
+                validateAction);
+            
+            
             ToConsole(personListOne, personListTwo);
             
             Console.ReadLine();
@@ -72,12 +82,13 @@ namespace Lab_1_Project
             Console.WriteLine(personListTwo.ShowList());
         }
 
+        //TODO: rename+
         /// <summary>
         /// Проверка корректности вводимых параметров.
         /// </summary>
         /// <param name="outputMessage">Параметр для проверки.</param>
         /// <param name="validationAction">Метод проверки.</param>
-        private static void ValidateInput(string outputMessage, Action validationAction)
+        private static void CheckInput(string outputMessage, Action validationAction)
         {
             while(true)
             {
@@ -132,7 +143,9 @@ namespace Lab_1_Project
                         }
                         catch
                         {
-                            throw new ArgumentException("Возраст должен быть числом!");
+                            throw new ArgumentException("Возраст должен быть числом " +
+                                $"должен быть меньше {Person.MaxAge} " +
+                                $"или больше {Person.MinAge}!");
                         }
                     }
                 ),
@@ -159,7 +172,7 @@ namespace Lab_1_Project
             };
             foreach (var action in validationAction)
             {
-                ValidateInput(action.Item1, action.Item2);
+                CheckInput(action.Item1, action.Item2);
             }
             return person;
         }
