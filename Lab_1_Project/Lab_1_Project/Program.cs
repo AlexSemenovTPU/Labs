@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_1_Project
 {
+    //TODO: RSDN
     public class Program
     {
         static void Main(string[] args)
@@ -32,9 +33,18 @@ namespace Lab_1_Project
 
             Console.ReadLine();
 
-            Console.WriteLine("Копирование второго человека из первого списка в конец второго:");
-            personListTwo.Add(personListOne.SearchByIndex(2));
+            Console.WriteLine();
 
+            var validateAction = new Action(() => 
+            {
+                var foundPerson = personListOne.SearchByIndex(2);
+                personListTwo.Add(foundPerson);
+            });
+
+            ValidateInput("Копирование второго человека из первого списка в конец второго:", 
+                validateAction);
+            
+            
             ToConsole(personListOne, personListTwo);
             
             Console.ReadLine();
@@ -72,6 +82,7 @@ namespace Lab_1_Project
             Console.WriteLine(personListTwo.ShowList());
         }
 
+        //TODO: rename
         /// <summary>
         /// Проверка корректности вводимых параметров.
         /// </summary>
@@ -132,7 +143,9 @@ namespace Lab_1_Project
                         }
                         catch
                         {
-                            throw new ArgumentException("Возраст должен быть числом!");
+                            throw new ArgumentException("Возраст должен быть числом" +
+                                $"должен быть меньше {Person.MaxAge} " +
+                                $"или больше {Person.MinAge}!");
                         }
                     }
                 ),
