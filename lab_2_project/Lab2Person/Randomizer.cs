@@ -18,16 +18,10 @@ namespace Lab_2_Project
         private static Random _rnd = new Random();
 
         /// <summary>
-        /// Создание случайной персоны
+        /// Лист мужских имен
         /// </summary>
-        /// <returns>Экземпляр случайной персоны</returns>
-        static public Person randomPerson()
+        private static List<string> _maleNames = new List<string>()
         {
-            /// <summary>
-            /// Лист мужских имен
-            /// </summary>
-            var maleNames = new List<string>()
-            {
                 "Алексей",
                 "Александр",
                 "Дмитрий",
@@ -38,13 +32,13 @@ namespace Lab_2_Project
                 "Максим",
                 "Захар",
                 "Тимофей"
-            };
+        };
 
-            /// <summary>
-            /// Лист женских имен
-            /// </summary>
-            var femaleNames = new List<string>()
-            {
+        /// <summary>
+        /// Лист женских имен
+        /// </summary>
+        private static List<string> _femaleNames = new List<string>()
+        {
                 "Анастасия",
                 "Анна",
                 "Мария",
@@ -55,14 +49,14 @@ namespace Lab_2_Project
                 "Екатерина",
                 "Арина",
                 "Полина"
-            };
-            
-            /// <summary>
-            /// Лист фамилий
-            /// </summary>
-            var surnames = new List<string>()
-            {
-                "Семенов",
+        };
+
+        /// <summary>
+        /// Лист фамилий
+        /// </summary>
+        private static List<string> _surnames = new List<string>()
+        {
+                 "Семенов",
                 "Логинов",
                 "Иванов",
                 "Смирнов",
@@ -72,8 +66,16 @@ namespace Lab_2_Project
                 "Голубев",
                 "Беляев",
                 "Тарасов"
-            };
-            
+        };
+
+        /// <summary>
+        /// Создание случайной персоны
+        /// </summary>
+        /// <returns>Экземпляр случайной персоны</returns>
+        static public Person RandomPerson()
+        {
+            int age = Convert.ToInt32(_rnd.Next(Person.MinAge, Person.MaxAge));
+
             Gender gender;
             if (_rnd.Next(1, 3) == 1) 
             { 
@@ -87,23 +89,32 @@ namespace Lab_2_Project
             string name;
             if (gender == Gender.Male) 
             { 
-                name = maleNames[_rnd.Next(0, maleNames.Count)]; 
+                name = _maleNames[_rnd.Next(0, _maleNames.Count)]; 
             }
             else 
             { 
-                name = femaleNames[_rnd.Next(0, femaleNames.Count)]; 
+                name = _femaleNames[_rnd.Next(0, _femaleNames.Count)]; 
             }
 
-            string surname = surnames[_rnd.Next(0, surnames.Count)];
+            string surname = _surnames[_rnd.Next(0, _surnames.Count)];
             
             if (gender == Gender.Female)
             {
                 surname = surname + "а";
             }
 
-            int age = Convert.ToInt32(_rnd.Next(Person.MinAge, Person.MaxAge));
+            Person person = new Person(name, surname, age, gender);
 
-            return new Person(name, surname, age, gender);
+            if (person.Age <= 18)
+            {
+                return CreateRandomChild();
+            }
+            else
+            {
+                return CreateRandomAdult();
+            }
+
+
         }
     }
 }
