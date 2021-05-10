@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_1_Project
+namespace Lab_2_Project
 {
     /// <summary>
     /// Пол персоны
