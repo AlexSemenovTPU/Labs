@@ -51,12 +51,12 @@ namespace Lab_2_Project
         /// <summary>
         /// Возраст персоны
         /// </summary>
-        private int _age;
+        protected int _age;
 
         /// <summary>
         /// Возраст персоны
         /// </summary>
-        public int Age 
+        public virtual int Age 
         { 
             get => _age;
             set
@@ -107,17 +107,20 @@ namespace Lab_2_Project
         /// <summary>
         /// Вывод персоны на экран
         /// </summary>
-        public string Info()
+        public virtual string Info
         {
-            string outGender = 
+            get 
+            {
+                string outGender =
                 this.Gender == Gender.Male
                     ? "Мужской"
                     : "Женский";
 
-            return $"Имя: {this.Name} " +
-                $"Фамилия: {this.Surname} " +
-                $"Возраст: {this.Age} " +
-                $"Пол: {outGender}; ";
+                return $"Имя: {this.Name} " +
+                    $"Фамилия: {this.Surname} " +
+                    $"Возраст: {this.Age} " +
+                    $"Пол: {outGender}; ";
+            }
         }
 
         /// <summary>
