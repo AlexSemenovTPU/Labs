@@ -33,12 +33,9 @@ namespace Lab_2_Project
             Console.WriteLine();
             Console.WriteLine("Randomly generated list:\n");
 
-            for (int i = 0; i < listOfPersons.Count; i++)
-            {
-                Console.ReadKey();
-                Console.WriteLine(listOfPersons.ShowList(i).Info);
-                Console.WriteLine();
-            }
+
+            Console.WriteLine(listOfPersons.ShowList());
+
 
             Console.ReadKey();
         }

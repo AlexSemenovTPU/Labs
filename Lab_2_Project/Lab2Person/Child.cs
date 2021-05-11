@@ -17,7 +17,7 @@ namespace Lab_2_Project
         /// <summary>
         /// Максимальный возраст взрослого
         /// </summary>
-        public const int MaxChildAge = 8;
+        public const int MaxChildAge = 18;
 
         public override int Age
         {
@@ -29,7 +29,9 @@ namespace Lab_2_Project
                     throw new ArgumentException(
                         $"Возраст должен быть меньше {MaxChildAge} или больше {MinChildAge}!");
                 }
+                _age = value;
             }
+
         }
 
         /// <summary>
@@ -104,7 +106,7 @@ namespace Lab_2_Project
             Institution = institution;
         }
 
-        public Child() : this("Неизвестно", "Неизвестно", 0, Gender.Male,
+        public Child() : this("Неизвестно", "Неизвестно", 10, Gender.Male,
             null, null, institution: "Нет")
         { }
     }

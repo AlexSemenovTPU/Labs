@@ -30,7 +30,9 @@ namespace Lab_2_Project
                     throw new ArgumentException(
                         $"Возраст должен быть меньше {MaxAdultAge} или больше {MinAdultAge}!");
                 }
+                _age = value;
             }
+            
 
         }
 
@@ -47,12 +49,12 @@ namespace Lab_2_Project
             get => _passport;
             set
             {
-                const string pattern = @"^[0-9]{10}$";
+                const string pattern = @"\D";
                 Regex regex = new Regex(pattern);
-                if (value.Length != 10 || regex.IsMatch(value.ToString()) == true)
+                if (value.Length != 9 || regex.IsMatch(value.ToString()) == true)
                 {
                     throw new ArgumentException("Паспортные данные должны содержать " +
-                        "10 чисел");
+                        "9 чисел");
                 }
                 _passport = value;
             }
@@ -88,9 +90,6 @@ namespace Lab_2_Project
                 string partner = Partner != null
                     ? $"{Partner.Name} {Partner.Surname}"
                     : "Нет партнера";
-                string child = Child != null
-                    ? $"{Child.Name} {Child.Surname}"
-                    : "Нет детей";
                 string job = Job != null
                     ? $"{Job}"
                     : "Нет";
@@ -98,7 +97,6 @@ namespace Lab_2_Project
                 return base.Info +
                     $"\n\tПаспортные данные: {Passport}\n" +
                     $"\tСупруг(а): {partner}\n" +
-                    $"\tДети: {child}\n" +
                     $"\tМесто работы: {job}";
             }
         }
@@ -131,7 +129,7 @@ namespace Lab_2_Project
             return $"{Name} {Surname} работает в {job}";
         }
 
-        public Adult() : this("Неизвестно", "Неизвестно", 0, Gender.Male,
-            "0000000000", "Нет") { }
+       public Adult() : this("Неизвестно", "Неизвестно", 20, Gender.Male,
+            "000000000", "Нет") { }
     }
 }

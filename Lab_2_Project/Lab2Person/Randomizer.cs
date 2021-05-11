@@ -72,43 +72,38 @@ namespace Lab_2_Project
         /// Создание случайной персоны
         /// </summary>
         /// <returns>Экземпляр случайной персоны</returns>
-        static public Person RandomPerson()
+        static public void RandomPerson(Person person)
         {
-            int age = Convert.ToInt32(_rnd.Next(Person.MinAge, Person.MaxAge));
 
-            Gender gender;
             if (_rnd.Next(1, 3) == 1) 
             { 
-                gender = Gender.Male; 
+                person.Gender = Gender.Male; 
             }
             else 
-            { 
-                gender = Gender.Female; 
-            }
-
-            string name;
-            if (gender == Gender.Male) 
-            { 
-                name = _maleNames[_rnd.Next(0, _maleNames.Count)]; 
-            }
-            else 
-            { 
-                name = _femaleNames[_rnd.Next(0, _femaleNames.Count)]; 
-            }
-
-            string surname = _surnames[_rnd.Next(0, _surnames.Count)];
-            
-            if (gender == Gender.Female)
             {
-                surname = surname + "а";
+                person.Gender = Gender.Female; 
             }
 
-            return new Person(name, surname, age, gender);
+            if (person.Gender == Gender.Male) 
+            { 
+                person.Name = _maleNames[_rnd.Next(0, _maleNames.Count)]; 
+            }
+            else 
+            {
+                person.Name = _femaleNames[_rnd.Next(0, _femaleNames.Count)]; 
+            }
+
+            person.Surname = _surnames[_rnd.Next(0, _surnames.Count)];
+            
+            if (person.Gender == Gender.Female)
+            {
+                person.Surname += "а";
+            }
+
         }
 
         public static Person CreateRandomPerson()
         {
-            RandomPerson();
             if (_rnd.Next(0,2) != 0)
             {
                 return CreateChild();
@@ -122,6 +117,7 @@ namespace Lab_2_Project
         public static Adult CreateAdult(bool married = false)
         {
             var randomAdult = new Adult();
+            RandomPerson(randomAdult);
             randomAdult.Age = _rnd.Next(Adult.MinAdultAge, Adult.MaxAdultAge);
 
 
@@ -155,6 +151,7 @@ namespace Lab_2_Project
         public static Child CreateChild()
         {
             Child randomChild = new Child();
+            RandomPerson(randomChild);
             randomChild.Age = _rnd.Next(Child.MinChildAge, Child.MaxChildAge);
 
             bool hasMother = _rnd.Next(0, 2) != 0;
@@ -173,9 +170,9 @@ namespace Lab_2_Project
             
             List<string> institution = new List<string>()
             {
-                "#25", "#1",
-                "Лицей", "Гимназия", "#322",
-                "Пуфендуй", "Школа",
+                "№25", "№1",
+                "Лицей", "Гимназия", "№322",
+                "Пуфендуй", "Буратино",
                 "Ромашка"
             };
 

@@ -10,7 +10,7 @@ namespace Lab_2_Project
     /// <summary>
     /// Класс персон
     /// </summary>
-    public class Person
+    public abstract class Person
     {
         /// <summary>
         /// Имя персоны
@@ -56,16 +56,7 @@ namespace Lab_2_Project
         /// <summary>
         /// Возраст персоны
         /// </summary>
-        public virtual int Age 
-        { 
-            get => _age;
-            set
-            {
-                CorrectAge(value);
-                _age = value;
-            }
-                
-        }
+        public abstract int Age { get; set; }
 
         /// <summary>
         /// Пол персоны
@@ -102,7 +93,7 @@ namespace Lab_2_Project
         /// <summary>
         /// Конструктор с дефолтами.
         /// </summary>
-        public Person() : this("Неизвестно", "Неизвестно", 0, Gender.Male) { }
+        public Person() : this("Неизвестно", "Неизвестно", 30, Gender.Male) { }
 
         /// <summary>
         /// Вывод персоны на экран
@@ -138,18 +129,6 @@ namespace Lab_2_Project
             }
         }
 
-        /// <summary>
-        /// Проверка возраста на соответствие требованиям
-        /// </summary>
-        /// <param name="age"></param>
-        public static void CorrectAge(int age)
-        {
-            if ((age < MinAge) || (age > MaxAge))
-            {
-                throw new ArgumentException(
-                    $"Возраст должен быть меньше {MaxAge} или больше {MinAge}!");
-            }
-        }
 
         /// <summary>
         /// Приведение имени/фамилии к правельному регистру
@@ -162,11 +141,5 @@ namespace Lab_2_Project
                 word.Substring(1).ToLower();
         }
 
-        public const int MaxAge = 118;
-        
-        public const int MinAge = 0;
     }    
 }
-
-
-//Regex pattern = new Regex(@"((^([a-zA-Z])+$)|(^([a-zA-Z])+(\s|-)([a-zA-Z])+$))|((^([а-яА-Я])+$)|(^([а-яА-Я])+(\s|-)([а-яА-Я])+$))");
