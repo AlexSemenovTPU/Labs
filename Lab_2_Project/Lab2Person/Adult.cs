@@ -20,6 +20,9 @@ namespace Lab_2_Project
         /// </summary>
         public const int MaxAdultAge = 118;
 
+        /// <summary>
+        /// Возраст
+        /// </summary>
         public override int Age
         {
             get => _age;
@@ -118,18 +121,20 @@ namespace Lab_2_Project
         }
 
         /// <summary>
-        /// Поиск работы
+        /// Конструктор по умолчнию
+        /// </summary>
+       public Adult() : this("Неизвестно", "Неизвестно", 20, Gender.Male,
+            "000000000", "Нет") { }
+
+        /// <summary>
+        /// Информаия о работе
         /// </summary>
         /// <param name="job"></param>
         /// <returns></returns>
-        public string FindJob(string job)
+        public string Checkob(string job)
         {
             Job = job;
-
             return $"{Name} {Surname} работает в {job}";
         }
-
-       public Adult() : this("Неизвестно", "Неизвестно", 20, Gender.Male,
-            "000000000", "Нет") { }
     }
 }

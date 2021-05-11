@@ -69,7 +69,7 @@ namespace Lab_2_Project
         };
 
         /// <summary>
-        /// Создание случайной персоны
+        /// Заполнение базовых полей
         /// </summary>
         /// <returns>Экземпляр случайной персоны</returns>
         static public void RandomPerson(Person person)
@@ -102,6 +102,10 @@ namespace Lab_2_Project
 
         }
 
+        /// <summary>
+        /// Создание случайной персоны
+        /// </summary>
+        /// <returns></returns>
         public static Person CreateRandomPerson()
         {
             if (_rnd.Next(0,2) != 0)
@@ -114,6 +118,11 @@ namespace Lab_2_Project
             }
         }
 
+        /// <summary>
+        /// Создание случайного взрослого
+        /// </summary>
+        /// <param name="married"></param>
+        /// <returns></returns>
         public static Adult CreateAdult(bool married = false)
         {
             var randomAdult = new Adult();
@@ -142,12 +151,20 @@ namespace Lab_2_Project
             return randomAdult;
         }
 
+        /// <summary>
+        /// Создаание случайных паспортных данныых
+        /// </summary>
+        /// <param name="adult"></param>
         private static void GetPasportData(Adult adult)
         {
             var _passport = _rnd.Next(100000000, 999999999).ToString();
             adult.Passport = _passport;
         }
 
+        /// <summary>
+        /// Создание случаайного ребенка
+        /// </summary>
+        /// <returns></returns>
         public static Child CreateChild()
         {
             Child randomChild = new Child();

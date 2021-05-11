@@ -19,6 +19,9 @@ namespace Lab_2_Project
         /// </summary>
         public const int MaxChildAge = 18;
 
+        /// <summary>
+        /// Возраст
+        /// </summary>
         public override int Age
         {
             get => _age;
@@ -106,8 +109,20 @@ namespace Lab_2_Project
             Institution = institution;
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
         public Child() : this("Неизвестно", "Неизвестно", 10, Gender.Male,
-            null, null, institution: "Нет")
-        { }
+            null, null, institution: "Нет") { }
+
+        /// <summary>
+        /// Знятие ребенка на день
+        /// </summary>
+        /// <returns></returns>
+        public string CheckInterest()
+        {
+            return $"{Name} {Surname} смотрит YouTube" +
+                $" весь день и не делает уроки";
+        }
     }
 }

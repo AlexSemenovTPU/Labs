@@ -7,17 +7,24 @@ using System.Threading.Tasks;
 
 namespace Lab_2_Project
 {
+    /// <summary>
+    /// Класс программы
+    /// </summary>
     class Program
     {
+        /// <summary>
+        /// Точка входа в программу
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Console.WindowWidth = 100;
 
-            Console.WriteLine("Press any key to start...");
+            Console.WriteLine("Наажмите клавишу...");
             Console.WriteLine();
             Console.ReadKey();
 
-            Console.WriteLine("Generation of 7 random people...");
+            Console.WriteLine("Генерация 7 случайных людей...");
             Console.WriteLine();
             Console.ReadKey();
 
@@ -28,14 +35,31 @@ namespace Lab_2_Project
                 listOfPersons.Add(Randomizer.CreateRandomPerson());
             }
 
-            Console.WriteLine("A list of persons has been sucсessfully created!");
-            Console.ReadKey();
             Console.WriteLine();
             Console.WriteLine("Randomly generated list:\n");
 
 
             Console.WriteLine(listOfPersons.ShowList());
+            Console.ReadKey();
 
+            Console.WriteLine("Определение типа четвёртого человека в списке...");
+            Console.ReadKey();
+
+            switch (listOfPersons.SearchByIndex(3))
+            {
+                case Adult adult:
+                    {
+                        Console.WriteLine("Тип четвёртого человека в списке - Adult");
+                        Console.WriteLine(adult.Checkob("Шаурма у Нурика"));
+                        break;
+                    }
+                case Child child:
+                    {
+                        Console.WriteLine("Тип четвёртого человека в списке - Child");
+                        Console.WriteLine(child.CheckInterest());
+                        break;
+                    }
+            }
 
             Console.ReadKey();
         }
