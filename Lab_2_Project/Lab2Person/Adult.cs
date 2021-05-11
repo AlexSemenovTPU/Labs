@@ -61,14 +61,8 @@ namespace Lab_2_Project
         /// <summary>
         /// Семейное положение
         /// </summary>
-        public bool IsMarried
-        {
-            get
-            {
-                return (Partner != null);
-            }
-        }
-
+        public bool IsMarried { get; set; }
+        
         /// <summary>
         /// Супруг(а)
         /// </summary>
@@ -136,5 +130,8 @@ namespace Lab_2_Project
 
             return $"{Name} {Surname} работает в {job}";
         }
+
+        public Adult() : this("Неизвестно", "Неизвестно", 0, Gender.Male,
+            "0000000000", "Нет") { }
     }
 }

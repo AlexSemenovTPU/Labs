@@ -88,7 +88,7 @@ namespace Lab_2_Project
             {
                 for (int i = 0; i < elementCount; i++)
                 {
-                    outputList = outputList + Persons[i].Info() + "\n";
+                    outputList = outputList + Persons[i].Info + "\n";
                 }
                 return outputList;
             }

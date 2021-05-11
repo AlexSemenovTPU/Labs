@@ -7,7 +7,7 @@ namespace Lab_2_Project
     /// <summary>
     /// Ребенок
     /// </summary>
-    class Child : Person
+    public class Child : Person
     {
         /// <summary>
         /// Минимальный возраст взрослого
@@ -88,20 +88,24 @@ namespace Lab_2_Project
         /// <summary>
         /// Конструктор класса
         /// </summary>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
+        /// <param name="name"></param>
+        /// <param name="surame"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
         /// <param name="mother"></param>
         /// <param name="father"></param>
         /// <param name="institution"></param>
-        public Child(string firstName, string lastName, int age,
+        public Child(string name, string surame, int age,
             Gender gender, Adult mother, Adult father,
-            string institution) : base(firstName, lastName, age, gender)
+            string institution) : base(name, surame, age, gender)
         {
             Mother = mother;
             Father = father;
             Institution = institution;
         }
+
+        public Child() : this("Неизвестно", "Неизвестно", 0, Gender.Male,
+            null, null, institution: "Нет")
+        { }
     }
 }

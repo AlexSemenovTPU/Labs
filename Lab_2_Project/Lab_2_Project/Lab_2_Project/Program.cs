@@ -11,15 +11,36 @@ namespace Lab_2_Project
     {
         static void Main(string[] args)
         {
-            PersonList personListOne = new PersonList();
-            PersonList personListTwo = new PersonList();
+            Console.WindowWidth = 100;
 
-            Console.WriteLine("Создание двух списков персон по 3 человека в каждом:");
-            for (int i = 0; i < 3; i++)
+            Console.WriteLine("Press any key to start...");
+            Console.WriteLine();
+            Console.ReadKey();
+
+            Console.WriteLine("Generation of 7 random people...");
+            Console.WriteLine();
+            Console.ReadKey();
+
+            var listOfPersons = new PersonList();
+
+            for (int i = 0; i < 7; i++)
             {
-                personListOne.Add(Randomizer.randomPerson());
-                personListTwo.Add(Randomizer.randomPerson());
+                listOfPersons.Add(Randomizer.CreateRandomPerson());
             }
+
+            Console.WriteLine("A list of persons has been sucсessfully created!");
+            Console.ReadKey();
+            Console.WriteLine();
+            Console.WriteLine("Randomly generated list:\n");
+
+            for (int i = 0; i < listOfPersons.Count; i++)
+            {
+                Console.ReadKey();
+                Console.WriteLine(listOfPersons.ShowList(i).Info);
+                Console.WriteLine();
+            }
+
+            Console.ReadKey();
         }
     }
 }
