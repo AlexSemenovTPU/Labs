@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab_2_Project
 {
+    //TODO: RSDN
     /// <summary>
     /// Класс программы
     /// </summary>

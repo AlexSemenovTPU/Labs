@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Lab_2_Project
 {
+    //TODO: RSDN
     /// <summary>
     /// Класс персон
     /// </summary>

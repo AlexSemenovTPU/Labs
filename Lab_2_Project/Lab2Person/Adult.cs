@@ -54,7 +54,7 @@ namespace Lab_2_Project
             {
                 const string pattern = @"\D";
                 Regex regex = new Regex(pattern);
-                if (value.Length != 9 || regex.IsMatch(value.ToString()) == true)
+                if (value.Length != 10 || regex.IsMatch(value.ToString()) == true)
                 {
                     throw new ArgumentException("Паспортные данные должны содержать " +
                         "9 чисел");
@@ -124,7 +124,7 @@ namespace Lab_2_Project
         /// Конструктор по умолчнию
         /// </summary>
        public Adult() : this("Неизвестно", "Неизвестно", 20, Gender.Male,
-            "000000000", "Нет") { }
+            "0000000000", "Нет") { }
 
         /// <summary>
         /// Информаия о работе

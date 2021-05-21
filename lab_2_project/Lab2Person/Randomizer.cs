@@ -157,7 +157,9 @@ namespace Lab_2_Project
         /// <param name="adult"></param>
         private static void GetPasportData(Adult adult)
         {
-            var _passport = _rnd.Next(100000000, 999999999).ToString();
+            var _passportSeries = _rnd.Next(1000, 9999).ToString();
+            var _passportNumber = _rnd.Next(100000, 999999).ToString();
+            string _passport = _passportSeries + _passportNumber;
             adult.Passport = _passport;
         }
 
