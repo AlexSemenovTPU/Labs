@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Lab_2_Project
 {
-    //TODO: RSDN
+    //TODO: RSDN+
     /// <summary>
     /// Класс программы
     /// </summary>
-    class Program
+    public class Program
     {
         /// <summary>
         /// Точка входа в программу

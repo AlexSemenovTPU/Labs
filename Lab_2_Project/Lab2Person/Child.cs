@@ -7,7 +7,7 @@ namespace Lab_2_Project
     /// <summary>
     /// Ребенок
     /// </summary>
-    public class Child : Person
+    public class Child : PersonBase
     {
         /// <summary>
         /// Минимальный возраст взрослого

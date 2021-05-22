@@ -15,12 +15,12 @@ namespace Lab_2_Project
         /// <summary>
         /// Массив переменных типа Person
         /// </summary>
-        private Person[] _localPersonArray = new Person[0];
+        private PersonBase[] _localPersonArray = new PersonBase[0];
 
         /// <summary>
         /// Массив переменных типа Person
         /// </summary>
-        public Person[] Persons => _localPersonArray;
+        public PersonBase[] Persons => _localPersonArray;
 
         /// <summary>
         /// Колличество персон в списке
@@ -30,7 +30,7 @@ namespace Lab_2_Project
         /// <summary>
         /// Добавление нового элемента
         /// </summary>
-        public void Add(Person newElement)
+        public void Add(PersonBase newElement)
         {
             int elementCount = Count;
 
@@ -55,7 +55,7 @@ namespace Lab_2_Project
         {
             int elementCount = Count;
 
-            var outputList = new Person[elementCount - 1];
+            var outputList = new PersonBase[elementCount - 1];
             int indexNumber = 0;
             if ((elementCount == 0) || (elementCount <= index))
             {
@@ -102,7 +102,7 @@ namespace Lab_2_Project
         /// Поиск персоны по индексу
         /// </summary>
         /// <returns>Персона согласно индексу</returns>
-        public Person SearchByIndex(int index)
+        public PersonBase SearchByIndex(int index)
         {
             int elementCount = Count;
 

@@ -7,11 +7,11 @@ using System.Text.RegularExpressions;
 
 namespace Lab_2_Project
 {
-    //TODO: RSDN
+    //TODO: RSDN+
     /// <summary>
-    /// Класс персон
+    /// Абстрактный класс PersonBase
     /// </summary>
-    public abstract class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя персоны
@@ -83,7 +83,7 @@ namespace Lab_2_Project
         /// <param name="surnme"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
-        public Person(string name, string surnme, int age, Gender gender)
+        public PersonBase(string name, string surnme, int age, Gender gender)
         {
             Name = name;
             Surname = surnme;
@@ -94,7 +94,7 @@ namespace Lab_2_Project
         /// <summary>
         /// Конструктор с дефолтами.
         /// </summary>
-        public Person() : this("Неизвестно", "Неизвестно", 30, Gender.Male) { }
+        public PersonBase() : this("Неизвестно", "Неизвестно", 30, Gender.Male) { }
 
         /// <summary>
         /// Вывод персоны на экран

@@ -11,11 +11,11 @@ namespace Lab_2_Project
     /// </summary>
     public class Randomizer
     {
-        //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Приватный класс Random
         /// </summary>
-        private static Random _rnd = new Random();
+        private static Random _random = new Random();
 
         /// <summary>
         /// Лист мужских имен
@@ -72,10 +72,10 @@ namespace Lab_2_Project
         /// Заполнение базовых полей
         /// </summary>
         /// <returns>Экземпляр случайной персоны</returns>
-        static public void RandomPerson(Person person)
+        static public void RandomPerson(PersonBase person)
         {
 
-            if (_rnd.Next(1, 3) == 1) 
+            if (_random.Next(1, 3) == 1) 
             { 
                 person.Gender = Gender.Male; 
             }
@@ -86,14 +86,14 @@ namespace Lab_2_Project
 
             if (person.Gender == Gender.Male) 
             { 
-                person.Name = _maleNames[_rnd.Next(0, _maleNames.Count)]; 
+                person.Name = _maleNames[_random.Next(0, _maleNames.Count)]; 
             }
             else 
             {
-                person.Name = _femaleNames[_rnd.Next(0, _femaleNames.Count)]; 
+                person.Name = _femaleNames[_random.Next(0, _femaleNames.Count)]; 
             }
 
-            person.Surname = _surnames[_rnd.Next(0, _surnames.Count)];
+            person.Surname = _surnames[_random.Next(0, _surnames.Count)];
             
             if (person.Gender == Gender.Female)
             {
@@ -106,9 +106,9 @@ namespace Lab_2_Project
         /// Создание случайной персоны
         /// </summary>
         /// <returns></returns>
-        public static Person CreateRandomPerson()
+        public static PersonBase CreateRandomPerson()
         {
-            if (_rnd.Next(0,2) != 0)
+            if (_random.Next(0,2) != 0)
             {
                 return CreateChild();
             }
@@ -127,12 +127,12 @@ namespace Lab_2_Project
         {
             var randomAdult = new Adult();
             RandomPerson(randomAdult);
-            randomAdult.Age = _rnd.Next(Adult.MinAdultAge, Adult.MaxAdultAge);
+            randomAdult.Age = _random.Next(Adult.MinAdultAge, Adult.MaxAdultAge);
 
 
             if (!married)
             {
-                randomAdult.IsMarried = _rnd.Next(2) == 0 ? false : true;
+                randomAdult.IsMarried = _random.Next(2) == 0 ? false : true;
                 if (randomAdult.IsMarried == true)
                 {
                     randomAdult.Partner = CreateAdult(true);
@@ -146,7 +146,7 @@ namespace Lab_2_Project
                 "Пельменная", "Автомастерская", "Кофейня"
             };
 
-            randomAdult.Job = jobs[_rnd.Next(0, jobs.Count)];
+            randomAdult.Job = jobs[_random.Next(0, jobs.Count)];
             GetPasportData(randomAdult);
             return randomAdult;
         }
@@ -157,8 +157,8 @@ namespace Lab_2_Project
         /// <param name="adult"></param>
         private static void GetPasportData(Adult adult)
         {
-            var _passportSeries = _rnd.Next(1000, 9999).ToString();
-            var _passportNumber = _rnd.Next(100000, 999999).ToString();
+            var _passportSeries = _random.Next(1000, 9999).ToString();
+            var _passportNumber = _random.Next(100000, 999999).ToString();
             string _passport = _passportSeries + _passportNumber;
             adult.Passport = _passport;
         }
@@ -171,16 +171,16 @@ namespace Lab_2_Project
         {
             Child randomChild = new Child();
             RandomPerson(randomChild);
-            randomChild.Age = _rnd.Next(Child.MinChildAge, Child.MaxChildAge);
+            randomChild.Age = _random.Next(Child.MinChildAge, Child.MaxChildAge);
 
-            bool hasMother = _rnd.Next(0, 2) != 0;
+            bool hasMother = _random.Next(0, 2) != 0;
 
             if (hasMother)
             {
                 randomChild.Mother = CreateAdult(true);
             }
 
-            bool hasFather = _rnd.Next(0, 2) != 0;
+            bool hasFather = _random.Next(0, 2) != 0;
 
             if (hasFather)
             {
@@ -195,7 +195,7 @@ namespace Lab_2_Project
                 "Ромашка"
             };
 
-            randomChild.Institution = institution[_rnd.Next(0, institution.Count)];
+            randomChild.Institution = institution[_random.Next(0, institution.Count)];
 
             return randomChild;
         }
