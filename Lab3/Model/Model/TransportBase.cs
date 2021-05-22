@@ -71,7 +71,7 @@ namespace Model
         {
             if (number < 0)
             {
-                throw new ArgumentOutOfRangeException("Величина должна" +
+                throw new ArgumentException("Величина должна" +
                     "быть положительным числом!");
             }
             else

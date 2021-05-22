@@ -113,7 +113,15 @@ namespace ConsoleLoader
         /// <returns></returns>
         public static double ReadFromConsoleAndParse()
         {
-            return double.Parse(Console.ReadLine().Replace('.', ','));
+            try
+            {
+                return double.Parse(Console.ReadLine().Replace('.', ','));
+            }
+            catch
+            {
+                throw new ArgumentException("Должно быть введено число!");
+            }
+
         }
 
         /// <summary>
