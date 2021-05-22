@@ -70,7 +70,7 @@ namespace ConsoleLoader
         public static void GetFuelQuantityInfo(TransportBase transport)
         {
             Console.WriteLine($"Затраченное топливо " +
-                $"{transport.FuelQuantity} л.");
+                $"{Math.Round(transport.FuelQuantity, 2)} л.");
         }
     }
 }

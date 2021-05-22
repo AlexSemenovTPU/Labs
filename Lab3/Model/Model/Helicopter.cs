@@ -79,7 +79,7 @@ namespace Model.Transport
         {
             get
             {
-                return Math.Round(AverageConsumption / 0.715 * FlightTime, 2);
+                return Math.Abs(AverageConsumption / 0.715 * FlightTime);
             }
         }
     }

@@ -103,8 +103,8 @@ namespace Model.Transport
         {
             get
             {
-                return Math.Round(SpecificConsumptionGasEngine * 
-                    ElectricMotorPower * TravelTime / 725 / 4, 2);
+                return Math.Abs(SpecificConsumptionGasEngine * 
+                    ElectricMotorPower * TravelTime / 725 / 4);
             }
         }
     }

@@ -81,8 +81,8 @@ namespace Model.Transport
         {
             get
             {
-                return Math.Round((AverageConsumption/100)
-                    * Distance, 2);
+                return Math.Abs((AverageConsumption/100)
+                    * Distance);
             }
         }
     }
