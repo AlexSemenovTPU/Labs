@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{7DE1169E-5663-4D56-9F44-8FBD67DE0FB3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F45A1801-9C93-457B-A2F3-B2DE461BECE1}"
+	ProjectSection(SolutionItems) = preProject
+		Model\Transport\Car.cs = Model\Transport\Car.cs
+		Model\Transport\Helicopter.cs = Model\Transport\Helicopter.cs
+		Model\Transport\Hybrid.cs = Model\Transport\Hybrid.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
