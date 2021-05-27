@@ -37,14 +37,16 @@ namespace GUI
 
             TypeOfTransportBox.SelectedIndexChanged += FormElementChange;
 
+            ButtonAdd.Enabled = false;
 
-
+            NameBox.TextChanged += BottonShow;
+            ConsumptionBox.TextChanged += BottonShow;
+            DistanceBox.TextChanged += BottonShow;
+            PowerBox.TextChanged += BottonShow;
         }
 
         private void Add_Click(object sender, EventArgs e)
         {
-            // _transport.Name = NameBox.Text;
-
             switch (TypeOfTransportBox.Text)
             {
                 case _carItem:
@@ -144,6 +146,33 @@ namespace GUI
             e.Handled = true;
         }
 
-        private void 
+        private void BottonShow(object sender, EventArgs e)
+        {
+            switch (TypeOfTransportBox.Text)
+            {
+                case _carItem:
+                {
+                        ButtonAdd.Enabled = NameBox.Text.Length > 0
+                            && ConsumptionBox.Text.Length > 0
+                            && DistanceBox.Text.Length > 0;
+                        break;
+                }
+                case _hybridCarItem:
+                {
+                        ButtonAdd.Enabled = NameBox.Text.Length > 0
+                            && ConsumptionBox.Text.Length > 0
+                            && DistanceBox.Text.Length > 0;
+                        break;
+                }
+                case _helicipterItem:
+                {
+                        ButtonAdd.Enabled = NameBox.Text.Length > 0
+                            && ConsumptionBox.Text.Length > 0
+                            && DistanceBox.Text.Length > 0
+                            && PowerBox.Text.Length > 0;
+                        break;
+                }
+            }
+        }
     }
 }

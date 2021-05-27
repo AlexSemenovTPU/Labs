@@ -43,7 +43,8 @@ namespace GUI
             this.ConsumptionLabel = new System.Windows.Forms.Label();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Add = new System.Windows.Forms.Button();
+            this.ButtonAdd = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -181,22 +182,32 @@ namespace GUI
             this.label1.TabIndex = 2;
             this.label1.Text = "Наименование:";
             // 
-            // Add
+            // ButtonAdd
             // 
-            this.Add.Location = new System.Drawing.Point(258, 234);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(80, 25);
-            this.Add.TabIndex = 2;
-            this.Add.Text = "Добавить";
-            this.Add.UseVisualStyleBackColor = true;
-            this.Add.Click += new System.EventHandler(this.Add_Click);
+            this.ButtonAdd.Location = new System.Drawing.Point(258, 234);
+            this.ButtonAdd.Name = "ButtonAdd";
+            this.ButtonAdd.Size = new System.Drawing.Size(80, 25);
+            this.ButtonAdd.TabIndex = 2;
+            this.ButtonAdd.Text = "Добавить";
+            this.ButtonAdd.UseVisualStyleBackColor = true;
+            this.ButtonAdd.Click += new System.EventHandler(this.Add_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(84, 234);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(168, 25);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Случайные данные";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // AddTransportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 269);
-            this.Controls.Add(this.Add);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.ButtonAdd);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddTransportForm";
@@ -224,6 +235,7 @@ namespace GUI
         private System.Windows.Forms.Label ConsumptionLabel;
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.Label PowerLabelUnits;
-        private System.Windows.Forms.Button Add;
+        private System.Windows.Forms.Button ButtonAdd;
+        private System.Windows.Forms.Button button3;
     }
 }

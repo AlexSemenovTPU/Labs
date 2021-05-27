@@ -33,7 +33,6 @@ namespace GUI
             this.AddTransport = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RemoveTransport = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridTransport)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -79,16 +78,6 @@ namespace GUI
             this.RemoveTransport.UseVisualStyleBackColor = true;
             this.RemoveTransport.Click += new System.EventHandler(this.RemoveTransport_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(18, 237);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(168, 25);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Случайные данные";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(206, 237);
@@ -104,7 +93,6 @@ namespace GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 270);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.RemoveTransport);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.AddTransport);
@@ -122,7 +110,6 @@ namespace GUI
         private System.Windows.Forms.Button AddTransport;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button RemoveTransport;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
     }
 }
