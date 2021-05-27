@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 
-namespace ConsoleLoader
+namespace CUI
 {
     /// <summary>
     /// Класс для тестирвания библиотеки

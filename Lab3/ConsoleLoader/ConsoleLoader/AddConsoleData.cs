@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.Transport;
 
-namespace ConsoleLoader
+namespace CUI
 {
     /// <summary>
     /// Добавление информации о
