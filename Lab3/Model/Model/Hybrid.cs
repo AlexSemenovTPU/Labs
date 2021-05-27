@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model.Transport
 {
+    //TODO: XML
+    //TODO: naming
     public class Hybrid : TransportBase
     {
         /// <summary>
