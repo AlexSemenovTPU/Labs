@@ -52,6 +52,7 @@
     <Compile Include="AddTransportForm.Designer.cs">
       <DependentUpon>AddTransportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransportEventArgs.cs" />
     <Compile Include="SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +97,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\Model\Model.csproj">
+      <Project>{7de1169e-5663-4d56-9f44-8fbd67de0fb3}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConsoleLoader\CUI.csproj">
+      <Project>{de68cd4f-3bee-421d-9221-d69d519bfc14}</Project>
+      <Name>CUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

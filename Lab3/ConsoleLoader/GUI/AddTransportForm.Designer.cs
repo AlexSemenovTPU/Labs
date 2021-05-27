@@ -30,28 +30,27 @@ namespace GUI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.TypeOfTransportBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.PowerLabelUnits = new System.Windows.Forms.Label();
+            this.PowerLabel = new System.Windows.Forms.Label();
+            this.PowerBox = new System.Windows.Forms.TextBox();
+            this.DistanceLabelUnits = new System.Windows.Forms.Label();
+            this.DistanceLabel = new System.Windows.Forms.Label();
+            this.DistanceBox = new System.Windows.Forms.TextBox();
+            this.ConsumptionLabelUnits = new System.Windows.Forms.Label();
+            this.ConsumptionBox = new System.Windows.Forms.TextBox();
+            this.ConsumptionLabel = new System.Windows.Forms.Label();
+            this.NameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.TypeOfTransportBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(326, 53);
@@ -59,30 +58,26 @@ namespace GUI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Тип транспорта";
             // 
-            // comboBox1
+            // TypeOfTransportBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Машина",
-            "Машина-гибрид",
-            "Вертолет"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(310, 24);
-            this.comboBox1.TabIndex = 2;
+            this.TypeOfTransportBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TypeOfTransportBox.Location = new System.Drawing.Point(6, 21);
+            this.TypeOfTransportBox.Name = "TypeOfTransportBox";
+            this.TypeOfTransportBox.Size = new System.Drawing.Size(310, 24);
+            this.TypeOfTransportBox.TabIndex = 2;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.PowerLabelUnits);
+            this.groupBox2.Controls.Add(this.PowerLabel);
+            this.groupBox2.Controls.Add(this.PowerBox);
+            this.groupBox2.Controls.Add(this.DistanceLabelUnits);
+            this.groupBox2.Controls.Add(this.DistanceLabel);
+            this.groupBox2.Controls.Add(this.DistanceBox);
+            this.groupBox2.Controls.Add(this.ConsumptionLabelUnits);
+            this.groupBox2.Controls.Add(this.ConsumptionBox);
+            this.groupBox2.Controls.Add(this.ConsumptionLabel);
+            this.groupBox2.Controls.Add(this.NameBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(12, 75);
             this.groupBox2.Name = "groupBox2";
@@ -91,87 +86,91 @@ namespace GUI
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Параметры транспорта";
             // 
-            // label7
+            // PowerLabelUnits
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(281, 118);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 17);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "кДж";
+            this.PowerLabelUnits.AutoSize = true;
+            this.PowerLabelUnits.Location = new System.Drawing.Point(281, 118);
+            this.PowerLabelUnits.Name = "PowerLabelUnits";
+            this.PowerLabelUnits.Size = new System.Drawing.Size(35, 17);
+            this.PowerLabelUnits.TabIndex = 2;
+            this.PowerLabelUnits.Text = "кДж";
             // 
-            // label6
+            // PowerLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(203, 17);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Мощность электродвигателя:";
+            this.PowerLabel.AutoSize = true;
+            this.PowerLabel.Location = new System.Drawing.Point(6, 118);
+            this.PowerLabel.Name = "PowerLabel";
+            this.PowerLabel.Size = new System.Drawing.Size(203, 17);
+            this.PowerLabel.TabIndex = 2;
+            this.PowerLabel.Text = "Мощность электродвигателя:";
             // 
-            // textBox4
+            // PowerBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(215, 115);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(60, 22);
-            this.textBox4.TabIndex = 5;
+            this.PowerBox.Location = new System.Drawing.Point(215, 115);
+            this.PowerBox.Name = "PowerBox";
+            this.PowerBox.Size = new System.Drawing.Size(60, 22);
+            this.PowerBox.TabIndex = 5;
+            this.PowerBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberBox_KeyPress);
             // 
-            // label5
+            // DistanceLabelUnits
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(200, 88);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "км";
+            this.DistanceLabelUnits.AutoSize = true;
+            this.DistanceLabelUnits.Location = new System.Drawing.Point(200, 88);
+            this.DistanceLabelUnits.Name = "DistanceLabelUnits";
+            this.DistanceLabelUnits.Size = new System.Drawing.Size(24, 17);
+            this.DistanceLabelUnits.TabIndex = 2;
+            this.DistanceLabelUnits.Text = "км";
             // 
-            // label4
+            // DistanceLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Дистанция:";
+            this.DistanceLabel.AutoSize = true;
+            this.DistanceLabel.Location = new System.Drawing.Point(6, 88);
+            this.DistanceLabel.Name = "DistanceLabel";
+            this.DistanceLabel.Size = new System.Drawing.Size(85, 17);
+            this.DistanceLabel.TabIndex = 2;
+            this.DistanceLabel.Text = "Дистанция:";
             // 
-            // textBox3
+            // DistanceBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(134, 85);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(60, 22);
-            this.textBox3.TabIndex = 4;
+            this.DistanceBox.Location = new System.Drawing.Point(134, 85);
+            this.DistanceBox.Name = "DistanceBox";
+            this.DistanceBox.Size = new System.Drawing.Size(60, 22);
+            this.DistanceBox.TabIndex = 4;
+            this.DistanceBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberBox_KeyPress);
             // 
-            // label3
+            // ConsumptionLabelUnits
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(200, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "л/100км";
+            this.ConsumptionLabelUnits.AutoSize = true;
+            this.ConsumptionLabelUnits.Location = new System.Drawing.Point(200, 58);
+            this.ConsumptionLabelUnits.Name = "ConsumptionLabelUnits";
+            this.ConsumptionLabelUnits.Size = new System.Drawing.Size(60, 17);
+            this.ConsumptionLabelUnits.TabIndex = 2;
+            this.ConsumptionLabelUnits.Text = "л/100км";
             // 
-            // textBox2
+            // ConsumptionBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(134, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(60, 22);
-            this.textBox2.TabIndex = 3;
+            this.ConsumptionBox.Location = new System.Drawing.Point(134, 55);
+            this.ConsumptionBox.Name = "ConsumptionBox";
+            this.ConsumptionBox.Size = new System.Drawing.Size(60, 22);
+            this.ConsumptionBox.TabIndex = 3;
+            this.ConsumptionBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberBox_KeyPress);
             // 
-            // label2
+            // ConsumptionLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Средний расход:";
+            this.ConsumptionLabel.AutoSize = true;
+            this.ConsumptionLabel.Location = new System.Drawing.Point(6, 58);
+            this.ConsumptionLabel.Name = "ConsumptionLabel";
+            this.ConsumptionLabel.Size = new System.Drawing.Size(118, 17);
+            this.ConsumptionLabel.TabIndex = 2;
+            this.ConsumptionLabel.Text = "Средний расход:";
             // 
-            // textBox1
+            // NameBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(134, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 22);
-            this.textBox1.TabIndex = 2;
+            this.NameBox.Location = new System.Drawing.Point(134, 24);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(182, 22);
+            this.NameBox.TabIndex = 2;
+            this.NameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameBox_KeyPress);
             // 
             // label1
             // 
@@ -182,32 +181,22 @@ namespace GUI
             this.label1.TabIndex = 2;
             this.label1.Text = "Наименование:";
             // 
-            // button1
+            // Add
             // 
-            this.button1.Location = new System.Drawing.Point(172, 234);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 25);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(258, 234);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 25);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Закрыть";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Add.Location = new System.Drawing.Point(258, 234);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(80, 25);
+            this.Add.TabIndex = 2;
+            this.Add.Text = "Добавить";
+            this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // AddTransportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 269);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Add);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddTransportForm";
@@ -222,20 +211,19 @@ namespace GUI
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox TypeOfTransportBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label PowerLabel;
+        private System.Windows.Forms.TextBox PowerBox;
+        private System.Windows.Forms.Label DistanceLabelUnits;
+        private System.Windows.Forms.Label DistanceLabel;
+        private System.Windows.Forms.TextBox DistanceBox;
+        private System.Windows.Forms.Label ConsumptionLabelUnits;
+        private System.Windows.Forms.TextBox ConsumptionBox;
+        private System.Windows.Forms.Label ConsumptionLabel;
+        private System.Windows.Forms.TextBox NameBox;
+        private System.Windows.Forms.Label PowerLabelUnits;
+        private System.Windows.Forms.Button Add;
     }
 }

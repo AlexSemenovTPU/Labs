@@ -46,7 +46,7 @@ namespace Model
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        protected TransportBase() : this("Неизвестно")
+        public TransportBase() : this("Неизвестно")
         {
 
         }
@@ -55,7 +55,7 @@ namespace Model
         /// Конструктор класса TransportBase
         /// </summary>
         /// <param name="name">Наименование транспорта</param>
-        protected TransportBase(string name)
+        public TransportBase(string name)
         {
             Name = name;
         }
@@ -63,7 +63,7 @@ namespace Model
         /// <summary>
         /// Рачет колличества затраченного топлива
         /// </summary>
-        public abstract double FuelQuantity { get; }
+        public virtual double FuelQuantity { get; }
 
         /// <summary>
         /// 
