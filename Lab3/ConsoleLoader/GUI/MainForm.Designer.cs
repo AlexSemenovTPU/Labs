@@ -33,16 +33,21 @@ namespace GUI
             this.AddTransport = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RemoveTransport = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridTransport)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DataGridTransport
             // 
+            this.DataGridTransport.AllowUserToAddRows = false;
+            this.DataGridTransport.AllowUserToDeleteRows = false;
+            this.DataGridTransport.AllowUserToResizeColumns = false;
+            this.DataGridTransport.AllowUserToResizeRows = false;
             this.DataGridTransport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridTransport.Location = new System.Drawing.Point(6, 21);
             this.DataGridTransport.Name = "DataGridTransport";
+            this.DataGridTransport.ReadOnly = true;
             this.DataGridTransport.RowHeadersWidth = 51;
             this.DataGridTransport.RowTemplate.Height = 24;
             this.DataGridTransport.Size = new System.Drawing.Size(356, 154);
@@ -50,7 +55,7 @@ namespace GUI
             // 
             // AddTransport
             // 
-            this.AddTransport.Location = new System.Drawing.Point(18, 202);
+            this.AddTransport.Location = new System.Drawing.Point(386, 33);
             this.AddTransport.Name = "AddTransport";
             this.AddTransport.Size = new System.Drawing.Size(168, 25);
             this.AddTransport.TabIndex = 1;
@@ -70,7 +75,7 @@ namespace GUI
             // 
             // RemoveTransport
             // 
-            this.RemoveTransport.Location = new System.Drawing.Point(206, 202);
+            this.RemoveTransport.Location = new System.Drawing.Point(386, 67);
             this.RemoveTransport.Name = "RemoveTransport";
             this.RemoveTransport.Size = new System.Drawing.Size(168, 25);
             this.RemoveTransport.TabIndex = 4;
@@ -78,26 +83,30 @@ namespace GUI
             this.RemoveTransport.UseVisualStyleBackColor = true;
             this.RemoveTransport.Click += new System.EventHandler(this.RemoveTransport_Click);
             // 
-            // button4
+            // SearchButton
             // 
-            this.button4.Location = new System.Drawing.Point(206, 237);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(168, 25);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Найти";
-            this.button4.UseVisualStyleBackColor = true;
+            this.SearchButton.Location = new System.Drawing.Point(386, 101);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(168, 25);
+            this.SearchButton.TabIndex = 6;
+            this.SearchButton.Text = "Найти";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 270);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(563, 200);
+            this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.RemoveTransport);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.AddTransport);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Вычислятор";
+            this.Text = "Вычисление затраченного транспортом топлива";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridTransport)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -110,7 +119,7 @@ namespace GUI
         private System.Windows.Forms.Button AddTransport;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button RemoveTransport;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button SearchButton;
     }
 }
 

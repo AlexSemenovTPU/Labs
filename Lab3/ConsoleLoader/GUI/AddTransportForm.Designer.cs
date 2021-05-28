@@ -44,7 +44,7 @@ namespace GUI
             this.NameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ButtonAdd = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.GetRandomData = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -192,24 +192,28 @@ namespace GUI
             this.ButtonAdd.UseVisualStyleBackColor = true;
             this.ButtonAdd.Click += new System.EventHandler(this.Add_Click);
             // 
-            // button3
+            // GetRandomData
             // 
-            this.button3.Location = new System.Drawing.Point(84, 234);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(168, 25);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Случайные данные";
-            this.button3.UseVisualStyleBackColor = true;
+            this.GetRandomData.Location = new System.Drawing.Point(84, 234);
+            this.GetRandomData.Name = "GetRandomData";
+            this.GetRandomData.Size = new System.Drawing.Size(168, 25);
+            this.GetRandomData.TabIndex = 6;
+            this.GetRandomData.Text = "Случайные данные";
+            this.GetRandomData.UseVisualStyleBackColor = true;
+            this.GetRandomData.Click += new System.EventHandler(this.GetRandomData_Click);
             // 
             // AddTransportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 269);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.GetRandomData);
             this.Controls.Add(this.ButtonAdd);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddTransportForm";
             this.Text = "Добавить транспорт";
             this.groupBox1.ResumeLayout(false);
@@ -236,6 +240,6 @@ namespace GUI
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.Label PowerLabelUnits;
         private System.Windows.Forms.Button ButtonAdd;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button GetRandomData;
     }
 }

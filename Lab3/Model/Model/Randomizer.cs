@@ -29,7 +29,7 @@ namespace Model
             return _names[_random.Next(0, _names.Count)];
         }
 
-        public static double GetRandomNumber(int minValue,int maxValue)
+        public static int GetRandomNumber(int minValue,int maxValue)
         {
             return _random.Next(minValue, maxValue);
         }

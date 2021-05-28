@@ -15,18 +15,13 @@ namespace GUI
     public partial class MainForm : Form
     {
 
-        private List<TransportBase> _transportList = new List<TransportBase>();
+        public List<TransportBase> transportList = new List<TransportBase>();
 
         private XmlSerializer _xmlSerializer = new XmlSerializer(typeof(List<TransportBase>));
 
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void AddTransport_Click(object sender, EventArgs e)
@@ -38,21 +33,29 @@ namespace GUI
 
         private void RemoveTransport_Click(object sender, EventArgs e)
         {
+            if (DataGridTransport.RowCount < 1) return;
+
             var transportRemoval = DataGridTransport.CurrentRow.DataBoundItem;
-            _transportList.Remove((TransportBase)transportRemoval);
+            transportList.Remove((TransportBase)transportRemoval);
             ShowList();
         }
 
-        private void AddTransportEvent(object sender, TransportEventArgs e)
+        public void AddTransportEvent(object sender, TransportEventArgs e)
         {
-            _transportList.Add(e.SendingTransport);
+            transportList.Add(e.SendingTransport);
             ShowList();
         }
 
         private void ShowList()
         {
             DataGridTransport.DataSource = null;
-            DataGridTransport.DataSource = _transportList;
+            DataGridTransport.DataSource = transportList;
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            SearchForm searchForm = new SearchForm();
+            searchForm.ShowDialog();
         }
     }
 }

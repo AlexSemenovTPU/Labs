@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace GUI
 {
@@ -15,6 +16,13 @@ namespace GUI
         public SearchForm()
         {
             InitializeComponent();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            var transportList = List < TransportBase > transportList;
+            var searchedTransportList = new List<TransportBase>();
+            foreach (TransportBase transportBase in )
         }
     }
 }
