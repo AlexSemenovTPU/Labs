@@ -17,6 +17,8 @@ namespace GUI
 
         public List<TransportBase> transportList = new List<TransportBase>();
 
+        private static List<TransportBase> _ListForSearch = new List<TransportBase>();
+
         private XmlSerializer _xmlSerializer = new XmlSerializer(typeof(List<TransportBase>));
 
         public MainForm()
@@ -37,24 +39,32 @@ namespace GUI
 
             var transportRemoval = DataGridTransport.CurrentRow.DataBoundItem;
             transportList.Remove((TransportBase)transportRemoval);
-            ShowList();
+            ShowList(transportList);
         }
 
         public void AddTransportEvent(object sender, TransportEventArgs e)
         {
             transportList.Add(e.SendingTransport);
-            ShowList();
+            ShowList(transportList);
         }
 
-        private void ShowList()
+        private void ShowList(List<TransportBase> transportList)
         {
             DataGridTransport.DataSource = null;
             DataGridTransport.DataSource = transportList;
         }
 
+        public void AddSearchTransportEvent(object sender, TransportEventArgs e)
+        {
+            _ListForSearch.Add(e.SendingTransport);
+            ShowList(_ListForSearch);
+        }
+
         private void SearchButton_Click(object sender, EventArgs e)
         {
             SearchForm searchForm = new SearchForm();
+            SearchForm.TakeList(transportList);
+            searchForm.SendDataFromFormEvent += AddSearchTransportEvent;
             searchForm.ShowDialog();
         }
     }

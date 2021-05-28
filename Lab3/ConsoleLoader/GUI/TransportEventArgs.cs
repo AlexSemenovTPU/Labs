@@ -25,5 +25,7 @@ namespace GUI
         {
             SendingTransport = sendingTransport;
         }
+
+
     }
 }
