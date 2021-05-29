@@ -10,6 +10,10 @@ namespace GUI
 {
     public class TransportEventArgs : EventArgs
     {
+        public event EventHandler<TransportEventArgs> SendDataFromFormEvent;
+
+        private static List<TransportBase> _listForSearch = new List<TransportBase>();
+
         private TransportBase _sendingTransport;
 
         public TransportBase SendingTransport
@@ -21,11 +25,21 @@ namespace GUI
             }
         }
 
+        public TransportEventArgs()
+        {
+
+        }
+
         public TransportEventArgs(TransportBase sendingTransport)
         {
             SendingTransport = sendingTransport;
         }
 
 
+
+        private void AddTransportEvent(object sender, TransportEventArgs e)
+        {
+            _listForSearch.Add(e.SendingTransport);
+        }
     }
 }

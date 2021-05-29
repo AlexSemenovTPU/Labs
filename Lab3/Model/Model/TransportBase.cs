@@ -43,33 +43,33 @@ namespace Model
             }
         }
 
-        //TODO: public -> protected
+        //TODO: public -> protected+
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public TransportBase() : this("Неизвестно")
+        protected TransportBase() : this("Неизвестно")
         {
 
         }
 
-        //TODO: public -> protected
+        //TODO: public -> protected+
         /// <summary>
         /// Конструктор класса TransportBase
         /// </summary>
         /// <param name="name">Наименование транспорта</param>
-        public TransportBase(string name)
+        protected TransportBase(string name)
         {
             Name = name;
         }
 
-        //TODO: 
+        //TODO: +
         /// <summary>
         /// Рачет колличества затраченного топлива
         /// </summary>
-        public virtual double FuelQuantity { get; }
+        public abstract double FuelQuantity { get; }
 
         /// <summary>
-        /// 
+        /// Проверка на корректность чисел
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>

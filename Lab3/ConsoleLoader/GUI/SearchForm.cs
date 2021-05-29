@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Model.Transport;
+using System.Text.RegularExpressions;
 
 namespace GUI
 {
@@ -26,8 +27,10 @@ namespace GUI
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = new MainForm();
-            mainForm.BroadcastList += TakeList;
+            if (CheckCarBox.Checked == false &&
+                CheckHybridCarBox.Checked == false &&
+                CheckHelicopterBox.Checked == false &&
+                CheckFuelBox.Checked == false) return;
 
             foreach (TransportBase transportBase in _listForSearch)
             {
@@ -46,18 +49,35 @@ namespace GUI
                     SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
                 }
 
-                if (CheckFuelBox.Checked == true && 
-                    transportBase.FuelQuantity.Equals(Double.Parse(FuelBox.Text)))
+                if (CheckFuelBox.Checked == true && transportBase.FuelQuantity.ToString().
+                    Contains(FuelBox.Text))
                 {
                     SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
                 }
             }
-            
+            Close();
+
         }
 
         public void TakeList(object sender, TransportEventArgs e)
         {
             _listForSearch.Add(e.SendingTransport);
+        }
+
+        public SearchForm (List<TransportBase> transportList)
+        {
+            _listForSearch = transportList;
+        }
+
+        private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const string letterPattern = @"[^0-9]";
+            Regex letterRegex = new Regex(letterPattern);
+
+            if (!letterRegex.IsMatch(e.KeyChar.ToString())
+                || e.KeyChar == (char)Keys.Back) return;
+
+            e.Handled = true;
         }
 
     }

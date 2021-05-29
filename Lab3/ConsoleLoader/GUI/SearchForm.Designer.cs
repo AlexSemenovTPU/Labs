@@ -70,6 +70,7 @@ namespace GUI
             this.FuelBox.Name = "FuelBox";
             this.FuelBox.Size = new System.Drawing.Size(57, 22);
             this.FuelBox.TabIndex = 1;
+            this.FuelBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberBox_KeyPress);
             // 
             // CheckFuelBox
             // 

@@ -21,15 +21,13 @@ namespace GUI
 
         private XmlSerializer _xmlSerializer = new XmlSerializer(typeof(List<TransportBase>));
 
-        public event EventHandler<TransportEventArgs> BroadcastList;
 
-        private event EventHandler ListChanged;
 
         public MainForm()
         {
             InitializeComponent();
 
-            //ClearButton.Visible = false;
+            ClearButton.Visible = false;
 
         }
 
@@ -70,24 +68,25 @@ namespace GUI
         private void SearchButton_Click(object sender, EventArgs e)
         {
             SearchForm searchForm = new SearchForm();
-            
 
-            foreach (TransportBase transportBase in transportList)
-            {
-                BroadcastList(this, new TransportEventArgs(transportBase));
-            }
+            SearchForm searchForm1 = new SearchForm(transportList);
 
-            searchForm.ShowDialog();
+            //searchForm.CloseForm += VisibleButton;
+            searchForm.FormClosed += VisibleButton;
             searchForm.SendDataFromFormEvent += AddSearchTransportEvent;
-            
+            searchForm.ShowDialog();
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
             _listForSearch.Clear();
             DataGridTransport.DataSource = null;
+            ClearButton.Visible = false;
         }
 
-
+        private void VisibleButton (object sender, EventArgs e)
+        {
+            ClearButton.Visible = true;
+        }
     }
 }
