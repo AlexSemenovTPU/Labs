@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model.Transport
 {
-    //TODO: XML
-    //TODO: naming
-    public class Hybrid : TransportBase
+    /// <summary>
+    /// Класс Машины-гибрида
+    /// </summary>
+    public class HybridCar : TransportBase
     {
         /// <summary>
         /// Удельный расход г/кВтч
@@ -77,7 +78,7 @@ namespace Model.Transport
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public Hybrid() : this("Неизвестно", 0, 0, 0)
+        public HybridCar() : this("Неизвестно", 0, 0, 0)
         {
 
         }
@@ -90,7 +91,7 @@ namespace Model.Transport
         /// топлива г/кВтч</param>
         /// <param name="distance">Пройденое расстояние</param>
         /// <param name="electricMotorPower">Мощность электродвигателя</param>
-        public Hybrid(string name, double specificConsumptionGasEngine, 
+        public HybridCar(string name, double specificConsumptionGasEngine, 
             double travelTime, double electricMotorPower) : base(name)
         {
             SpecificConsumptionGasEngine = specificConsumptionGasEngine;

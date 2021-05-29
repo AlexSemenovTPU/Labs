@@ -34,6 +34,7 @@ namespace GUI
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RemoveTransport = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridTransport)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -93,11 +94,22 @@ namespace GUI
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(386, 133);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(168, 25);
+            this.ClearButton.TabIndex = 7;
+            this.ClearButton.Text = "Отчистить";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 200);
+            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.RemoveTransport);
             this.Controls.Add(this.groupBox1);
@@ -120,6 +132,7 @@ namespace GUI
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button RemoveTransport;
         private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.Button ClearButton;
     }
 }
 

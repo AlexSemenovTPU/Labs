@@ -16,7 +16,9 @@ namespace GUI
     {
         public event EventHandler<TransportEventArgs> SendDataFromFormEvent;
 
-        private static List<TransportBase> _ListForSearch = new List<TransportBase>();
+        private static List<TransportBase> _listForSearch = new List<TransportBase>();
+
+
         public SearchForm()
         {
             InitializeComponent();
@@ -24,10 +26,28 @@ namespace GUI
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            var searchedTransportList = new List<TransportBase>();
-            foreach (TransportBase transportBase in _ListForSearch)
+            MainForm mainForm = new MainForm();
+            mainForm.BroadcastList += TakeList;
+
+            foreach (TransportBase transportBase in _listForSearch)
             {
-                if (transportBase is Car)
+                if (transportBase is Car && CheckCarBox.Checked == true)
+                {
+                    SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
+                }
+
+                if (transportBase is HybridCar && CheckHybridCarBox.Checked == true)
+                {
+                    SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
+                }
+
+                if (transportBase is Helicopter && CheckHelicopterBox.Checked == true)
+                {
+                    SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
+                }
+
+                if (CheckFuelBox.Checked == true && 
+                    transportBase.FuelQuantity.Equals(Double.Parse(FuelBox.Text)))
                 {
                     SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
                 }
@@ -35,12 +55,9 @@ namespace GUI
             
         }
 
-        public static void TakeList(List<TransportBase> transportList)
+        public void TakeList(object sender, TransportEventArgs e)
         {
-            foreach (TransportBase transportBase in transportList)
-            {
-                _ListForSearch.Add(transportBase);
-            }
+            _listForSearch.Add(e.SendingTransport);
         }
 
     }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model.Transport
 {
+    /// <summary>
+    /// Класс Вертолет
+    /// </summary>
     public class Helicopter : TransportBase
     {
         /// <summary>

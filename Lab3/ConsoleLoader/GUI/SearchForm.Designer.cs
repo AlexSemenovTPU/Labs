@@ -31,11 +31,11 @@ namespace GUI
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.FuelBox = new System.Windows.Forms.TextBox();
+            this.CheckFuelBox = new System.Windows.Forms.CheckBox();
+            this.CheckHelicopterBox = new System.Windows.Forms.CheckBox();
+            this.CheckHybridCarBox = new System.Windows.Forms.CheckBox();
+            this.CheckCarBox = new System.Windows.Forms.CheckBox();
             this.SearchButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -43,11 +43,11 @@ namespace GUI
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.FuelBox);
+            this.groupBox1.Controls.Add(this.CheckFuelBox);
+            this.groupBox1.Controls.Add(this.CheckHelicopterBox);
+            this.groupBox1.Controls.Add(this.CheckHybridCarBox);
+            this.groupBox1.Controls.Add(this.CheckCarBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(272, 133);
@@ -64,52 +64,52 @@ namespace GUI
             this.label1.TabIndex = 1;
             this.label1.Text = "л";
             // 
-            // textBox1
+            // FuelBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(188, 102);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(57, 22);
-            this.textBox1.TabIndex = 1;
+            this.FuelBox.Location = new System.Drawing.Point(188, 102);
+            this.FuelBox.Name = "FuelBox";
+            this.FuelBox.Size = new System.Drawing.Size(57, 22);
+            this.FuelBox.TabIndex = 1;
             // 
-            // checkBox4
+            // CheckFuelBox
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(6, 104);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(176, 21);
-            this.checkBox4.TabIndex = 2;
-            this.checkBox4.Text = "Затраченное топливо";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.CheckFuelBox.AutoSize = true;
+            this.CheckFuelBox.Location = new System.Drawing.Point(6, 104);
+            this.CheckFuelBox.Name = "CheckFuelBox";
+            this.CheckFuelBox.Size = new System.Drawing.Size(176, 21);
+            this.CheckFuelBox.TabIndex = 2;
+            this.CheckFuelBox.Text = "Затраченное топливо";
+            this.CheckFuelBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // CheckHelicopterBox
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(6, 77);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(93, 21);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Вертолет";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.CheckHelicopterBox.AutoSize = true;
+            this.CheckHelicopterBox.Location = new System.Drawing.Point(6, 77);
+            this.CheckHelicopterBox.Name = "CheckHelicopterBox";
+            this.CheckHelicopterBox.Size = new System.Drawing.Size(93, 21);
+            this.CheckHelicopterBox.TabIndex = 2;
+            this.CheckHelicopterBox.Text = "Вертолет";
+            this.CheckHelicopterBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // CheckHybridCarBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 50);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(134, 21);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "Машина-гибрид";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.CheckHybridCarBox.AutoSize = true;
+            this.CheckHybridCarBox.Location = new System.Drawing.Point(6, 50);
+            this.CheckHybridCarBox.Name = "CheckHybridCarBox";
+            this.CheckHybridCarBox.Size = new System.Drawing.Size(134, 21);
+            this.CheckHybridCarBox.TabIndex = 2;
+            this.CheckHybridCarBox.Text = "Машина-гибрид";
+            this.CheckHybridCarBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // CheckCarBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 23);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(84, 21);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Машина";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CheckCarBox.AutoSize = true;
+            this.CheckCarBox.Location = new System.Drawing.Point(6, 23);
+            this.CheckCarBox.Name = "CheckCarBox";
+            this.CheckCarBox.Size = new System.Drawing.Size(84, 21);
+            this.CheckCarBox.TabIndex = 1;
+            this.CheckCarBox.Text = "Машина";
+            this.CheckCarBox.UseVisualStyleBackColor = true;
             // 
             // SearchButton
             // 
@@ -140,11 +140,11 @@ namespace GUI
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox FuelBox;
+        private System.Windows.Forms.CheckBox CheckFuelBox;
+        private System.Windows.Forms.CheckBox CheckHelicopterBox;
+        private System.Windows.Forms.CheckBox CheckHybridCarBox;
+        private System.Windows.Forms.CheckBox CheckCarBox;
         private System.Windows.Forms.Button SearchButton;
     }
 }

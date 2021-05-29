@@ -11,7 +11,6 @@ namespace Lab_2_Project
     /// </summary>
     public class Randomizer
     {
-        //TODO: RSDN+
         /// <summary>
         /// Приватный класс Random
         /// </summary>

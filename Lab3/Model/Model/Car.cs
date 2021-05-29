@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace Model.Transport
 {
     /// <summary>
-    /// Класс Car
-    /// (Типичная машина)
+    /// Класс Машины
     /// </summary>
     public class Car : TransportBase
     {

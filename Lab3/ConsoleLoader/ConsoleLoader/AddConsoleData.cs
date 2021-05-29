@@ -46,9 +46,9 @@ namespace CUI
         /// Ввод данных о машине-гибриде
         /// </summary>
         /// <returns></returns>
-        public static Hybrid GetNewHybridFromKeyboard()
+        public static HybridCar GetNewHybridFromKeyboard()
         {
-            var hybrid = new Hybrid();
+            var hybrid = new HybridCar();
             var actions = new List<Action>()
             {
                 new Action(() =>

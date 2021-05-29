@@ -43,6 +43,7 @@ namespace Model
             }
         }
 
+        //TODO: public -> protected
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
@@ -51,6 +52,7 @@ namespace Model
 
         }
 
+        //TODO: public -> protected
         /// <summary>
         /// Конструктор класса TransportBase
         /// </summary>
@@ -60,6 +62,7 @@ namespace Model
             Name = name;
         }
 
+        //TODO: 
         /// <summary>
         /// Рачет колличества затраченного топлива
         /// </summary>
@@ -108,6 +111,5 @@ namespace Model
             return word.Substring(0, 1).ToUpper() +
                 word.Substring(1).ToLower();
         }
-
     }
 }

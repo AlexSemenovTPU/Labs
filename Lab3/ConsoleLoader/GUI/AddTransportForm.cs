@@ -66,7 +66,7 @@ namespace GUI
                     }
                 case _hybridCarItem:
                     {
-                        var hybridCar = new Hybrid();
+                        var hybridCar = new HybridCar();
                         hybridCar.Name = NameBox.Text;
                         hybridCar.SpecificConsumptionGasEngine = Double.Parse(ConsumptionBox.Text);
                         hybridCar.TravelTime = Double.Parse(DistanceBox.Text);
