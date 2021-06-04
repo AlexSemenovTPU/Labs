@@ -87,6 +87,8 @@ namespace GUI
         {
             DataGridTransport.DataSource = null;
             DataGridTransport.DataSource = transportList;
+            DataGridTransport.Columns[0].HeaderText = "Наименование транспорта";
+            DataGridTransport.Columns[1].HeaderText = "Затраченное топливо";
         }
 
         /// <summary>

@@ -49,6 +49,7 @@ namespace GUI
             this.DataGridTransport.Location = new System.Drawing.Point(6, 21);
             this.DataGridTransport.Name = "DataGridTransport";
             this.DataGridTransport.ReadOnly = true;
+            this.DataGridTransport.RowHeadersVisible = false;
             this.DataGridTransport.RowHeadersWidth = 51;
             this.DataGridTransport.RowTemplate.Height = 24;
             this.DataGridTransport.Size = new System.Drawing.Size(356, 154);
