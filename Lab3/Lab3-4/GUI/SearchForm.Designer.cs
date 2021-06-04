@@ -129,6 +129,9 @@ namespace GUI
             this.ClientSize = new System.Drawing.Size(296, 184);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SearchForm";
             this.Text = "Поиск";
             this.groupBox1.ResumeLayout(false);

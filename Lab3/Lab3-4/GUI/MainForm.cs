@@ -17,17 +17,17 @@ namespace GUI
     /// </summary>
     public partial class MainForm : Form
     {
-        //TODO: RSDN naming
+        //TODO: RSDN naming+
         /// <summary>
         /// Лист транспорта
         /// </summary>
-        public List<TransportBase> transportList = new List<TransportBase>();
+        private List<TransportBase> _transportList = new List<TransportBase>();
 
-        //TODO:
+        //TODO:+
         /// <summary>
         /// Лист фильтрованного трансорта
         /// </summary>
-        private static List<TransportBase> _listForSearch = new List<TransportBase>();
+        private List<TransportBase> _listForSearch = new List<TransportBase>();
 
         /// <summary>
         /// На будующее
@@ -66,8 +66,8 @@ namespace GUI
             if (DataGridTransport.RowCount < 1) return;
 
             var transportRemoval = DataGridTransport.CurrentRow.DataBoundItem;
-            transportList.Remove((TransportBase)transportRemoval);
-            ShowList(transportList);
+            _transportList.Remove((TransportBase)transportRemoval);
+            ShowList(_transportList);
         }
 
         /// <summary>
@@ -77,18 +77,18 @@ namespace GUI
         /// <param name="e"></param>
         private void AddTransportEvent(object sender, TransportEventArgs e)
         {
-            transportList.Add(e.SendingTransport);
-            ShowList(transportList);
+            _transportList.Add(e.SendingTransport);
+            ShowList(_transportList);
         }
 
         /// <summary>
         /// Вывод листа в DataGrid
         /// </summary>
         /// <param name="transportList"></param>
-        private void ShowList(List<TransportBase> transportList)
+        private void ShowList(List<TransportBase> ListToShow)
         {
             DataGridTransport.DataSource = null;
-            DataGridTransport.DataSource = transportList;
+            DataGridTransport.DataSource = ListToShow;
             DataGridTransport.Columns[0].HeaderText = "Наименование транспорта";
             DataGridTransport.Columns[1].HeaderText = "Затраченное топливо";
         }
@@ -114,7 +114,7 @@ namespace GUI
             SearchForm searchForm = new SearchForm();
             
             //?
-            SearchForm searchForm1 = new SearchForm(transportList);
+            SearchForm searchForm1 = new SearchForm(_transportList);
 
             searchForm.FormClosed += VisibleButton;
             searchForm.SendDataFromFormEvent += AddSearchTransportEvent;

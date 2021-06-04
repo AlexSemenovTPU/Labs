@@ -78,39 +78,39 @@ namespace GUI
             switch (TypeOfTransportBox.Text)
             {
                 case CarItem:
-                    {
-                        var car = new Car
-                        {
-                            Name = NameBox.Text,
-                            AverageConsumption = Double.Parse(ConsumptionBox.Text),
-                            Distance = Double.Parse(DistanceBox.Text)
-                        };
-                        SendDataFromFormEvent?.Invoke(this, new TransportEventArgs(car));
-                        break;
-                    }
+                {
+                    var car = new Car
+                    {        
+                        Name = NameBox.Text,            
+                        AverageConsumption = Double.Parse(ConsumptionBox.Text),        
+                        Distance = Double.Parse(DistanceBox.Text)        
+                    };        
+                    SendDataFromFormEvent?.Invoke(this, new TransportEventArgs(car));    
+                    break;                    
+                }        
                 case HybridCarItem:
-                    {
-                        var hybridCar = new HybridCar
-                        {
-                            Name = NameBox.Text,
-                            SpecificConsumptionGasEngine = Double.Parse(ConsumptionBox.Text),
-                            TravelTime = Double.Parse(DistanceBox.Text),
-                            ElectricMotorPower = Double.Parse(PowerBox.Text)
-                        };
-                        SendDataFromFormEvent(this, new TransportEventArgs(hybridCar));
-                        break;
-                    }
+                {    
+                    var hybridCar = new HybridCar        
+                    {    
+                        Name = NameBox.Text,        
+                        SpecificConsumptionGasEngine = Double.Parse(ConsumptionBox.Text),    
+                        TravelTime = Double.Parse(DistanceBox.Text),    
+                        ElectricMotorPower = Double.Parse(PowerBox.Text    )
+                    };
+                    SendDataFromFormEvent?.Invoke(this, new TransportEventArgs(hybridCar));    
+                    break;        
+                }    
                 case HelicopterItem:
+                {    
+                    var helicopter = new Helicopter        
                     {
-                        var helicopter = new Helicopter
-                        {
-                            Name = NameBox.Text,
-                            AverageConsumption = Double.Parse(ConsumptionBox.Text),
-                            FlightTime = Double.Parse(DistanceBox.Text)
-                        };
-                        SendDataFromFormEvent(this, new TransportEventArgs(helicopter));
-                        break;
-                    }
+                        Name = NameBox.Text,
+                        AverageConsumption = Double.Parse(ConsumptionBox.Text),
+                        FlightTime = Double.Parse(DistanceBox.Text)
+                    };
+                    SendDataFromFormEvent?.Invoke(this, new TransportEventArgs(helicopter));    
+                    break;        
+                }    
             }
             #if !DEBUG
             {
@@ -146,27 +146,27 @@ namespace GUI
                     DistanceLabelUnits.Text = "км";
                     break;
                 }
-                //TODO:
+                //TODO:+
                 case HybridCarItem:
                 {
-                        PowerBox.Visible = true;
-                        PowerLabel.Visible = true;
-                        PowerLabelUnits.Visible = true;
+                    PowerBox.Visible = true;        
+                    PowerLabel.Visible = true;    
+                    PowerLabelUnits.Visible = true;    
 
-                        ConsumptionLabel.Text = "Удельный расход:";
-                        ConsumptionLabelUnits.Text = "г/кВтч";
-                        DistanceLabel.Text = "Время в пути:";
-                        DistanceLabelUnits.Text = "ч";
-                        break;
-                }
-                //TODO:
+                    ConsumptionLabel.Text = "Удельный расход:";    
+                    ConsumptionLabelUnits.Text = "г/кВтч";    
+                    DistanceLabel.Text = "Время в пути:";    
+                    DistanceLabelUnits.Text = "ч";    
+                    break;    
+                }    
+                //TODO:+
                 case HelicopterItem:
                 {
-                        ConsumptionLabel.Text = "Средний расход:";
-                        ConsumptionLabelUnits.Text = "кг/ч";
-                        DistanceLabel.Text = "Время полета:";
-                        DistanceLabelUnits.Text = "ч";
-                        break;
+                    ConsumptionLabel.Text = "Средний расход:";        
+                    ConsumptionLabelUnits.Text = "кг/ч";    
+                    DistanceLabel.Text = "Время полета:";    
+                    DistanceLabelUnits.Text = "ч";    
+                    break;    
                 }
             }
         }
@@ -212,22 +212,22 @@ namespace GUI
         {
             switch (TypeOfTransportBox.Text)
             {
-                //TODO:
+                //TODO:+
                 case CarItem:
                 case HelicopterItem:
                 {
-                        ButtonAdd.Enabled = NameBox.Text.Length > 0
-                            && ConsumptionBox.Text.Length > 0
-                            && DistanceBox.Text.Length > 0;
-                        break;
+                    ButtonAdd.Enabled = NameBox.Text.Length > 0        
+                        && ConsumptionBox.Text.Length > 0        
+                        && DistanceBox.Text.Length > 0;    
+                    break;    
                 }
                 case HybridCarItem:
                 {
-                        ButtonAdd.Enabled = NameBox.Text.Length > 0
-                            && ConsumptionBox.Text.Length > 0
-                            && DistanceBox.Text.Length > 0
-                            && PowerBox.Text.Length > 0;
-                        break;
+                    ButtonAdd.Enabled = NameBox.Text.Length > 0    
+                        && ConsumptionBox.Text.Length > 0        
+                        && DistanceBox.Text.Length > 0    
+                        && PowerBox.Text.Length > 0;    
+                    break;    
                 }
             }
         }
@@ -247,32 +247,32 @@ namespace GUI
             {
                 case CarItem:
                 {
-                        NameBox.Text = Randomizer.GetRandomName();
-                        ConsumptionBox.Text = Randomizer.GetRandomNumber(1, 40).
-                            ToString();
-                        DistanceBox.Text = Randomizer.GetRandomNumber(1, 1000).
-                            ToString();
-                        break;
+                    NameBox.Text = Randomizer.GetRandomName();        
+                    ConsumptionBox.Text = Randomizer.GetRandomNumber(1, 40).
+                        ToString();            
+                    DistanceBox.Text = Randomizer.GetRandomNumber(1, 1000).    
+                        ToString();    
+                    break;    
                 }
                 case HybridCarItem:
                 {
-                        NameBox.Text = Randomizer.GetRandomName();
-                        ConsumptionBox.Text = Randomizer.GetRandomNumber(1, 40).
-                            ToString();
-                        DistanceBox.Text = Randomizer.GetRandomNumber(1, 24).
-                            ToString();
-                        PowerBox.Text = Randomizer.GetRandomNumber(1, 1000).
-                            ToString();
-                        break;
+                    NameBox.Text = Randomizer.GetRandomName();    
+                    ConsumptionBox.Text = Randomizer.GetRandomNumber(1, 40).    
+                        ToString();    
+                    DistanceBox.Text = Randomizer.GetRandomNumber(1, 24).    
+                        ToString();    
+                    PowerBox.Text = Randomizer.GetRandomNumber(1, 1000).    
+                        ToString();    
+                    break;   
                 }
                 case HelicopterItem:
                 {
-                        NameBox.Text = Randomizer.GetRandomName();
-                        ConsumptionBox.Text = Randomizer.GetRandomNumber(1, 80).
-                            ToString();
-                        DistanceBox.Text = Randomizer.GetRandomNumber(1, 24).
-                            ToString();
-                        break;
+                    NameBox.Text = Randomizer.GetRandomName();    
+                    ConsumptionBox.Text = Randomizer.GetRandomNumber(1, 80).    
+                        ToString();    
+                    DistanceBox.Text = Randomizer.GetRandomNumber(1, 24).    
+                        ToString();    
+                    break;    
                 }    
             }
         }
