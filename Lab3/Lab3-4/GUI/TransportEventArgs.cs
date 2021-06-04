@@ -16,19 +16,7 @@ namespace GUI
         /// <summary>
         /// Транспорт для передачи
         /// </summary>
-        private TransportBase _sendingTransport;
-
-        /// <summary>
-        /// Транспорт для передачи
-        /// </summary>
-        public TransportBase SendingTransport
-        {
-            get => _sendingTransport;
-            private set
-            {
-                _sendingTransport = value;
-            }
-        }
+        public TransportBase SendingTransport { get; }
 
         /// <summary>
         /// Конструктор для передачи транспорта

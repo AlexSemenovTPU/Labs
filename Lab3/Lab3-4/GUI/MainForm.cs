@@ -17,11 +17,13 @@ namespace GUI
     /// </summary>
     public partial class MainForm : Form
     {
+        //TODO: RSDN naming
         /// <summary>
         /// Лист транспорта
         /// </summary>
         public List<TransportBase> transportList = new List<TransportBase>();
 
+        //TODO:
         /// <summary>
         /// Лист фильтрованного трансорта
         /// </summary>
@@ -139,6 +141,7 @@ namespace GUI
         private void VisibleButton (object sender, EventArgs e)
         {
             if (_listForSearch.Count < 1) return;
+
             ClearButton.Visible = true;
         }
     }

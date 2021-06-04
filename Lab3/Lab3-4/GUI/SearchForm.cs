@@ -50,24 +50,22 @@ namespace GUI
 
             foreach (TransportBase transportBase in _listForSearch)
             {
-                if (transportBase is Car && CheckCarBox.Checked == true)
+                switch (transportBase)
                 {
-                    SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
+                    case Car _ when CheckCarBox.Checked:
+                    case HybridCar _ when CheckHybridCarBox.Checked:
+                    case Helicopter _ when CheckHelicopterBox.Checked:
+                    {
+                        //TODO:
+                        SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
+                        break;
+                    }
                 }
 
-                if (transportBase is HybridCar && CheckHybridCarBox.Checked == true)
-                {
-                    SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
-                }
-
-                if (transportBase is Helicopter && CheckHelicopterBox.Checked == true)
-                {
-                    SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
-                }
-
-                if (CheckFuelBox.Checked == true && transportBase.FuelQuantity.ToString().
+                if (CheckFuelBox.Checked && transportBase.FuelQuantity.ToString().
                     Contains(FuelBox.Text))
                 {
+                    //TODO:
                     SendDataFromFormEvent(this, new TransportEventArgs(transportBase));
                 }
             }
