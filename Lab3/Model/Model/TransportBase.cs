@@ -43,7 +43,6 @@ namespace Model
             }
         }
 
-        //TODO: public -> protected+
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
@@ -52,7 +51,6 @@ namespace Model
 
         }
 
-        //TODO: public -> protected+
         /// <summary>
         /// Конструктор класса TransportBase
         /// </summary>
@@ -62,7 +60,6 @@ namespace Model
             Name = name;
         }
 
-        //TODO: +
         /// <summary>
         /// Рачет колличества затраченного топлива
         /// </summary>
