@@ -13,18 +13,34 @@ using System.Text.RegularExpressions;
 
 namespace GUI
 {
+    /// <summary>
+    /// Класс формы поиска
+    /// </summary>
     public partial class SearchForm : Form
     {
+        /// <summary>
+        /// Ивент для передачи данных 
+        /// </summary>
         public event EventHandler<TransportEventArgs> SendDataFromFormEvent;
 
+        /// <summary>
+        /// Лист фильтрованных транспортных средств
+        /// </summary>
         private static List<TransportBase> _listForSearch = new List<TransportBase>();
 
-
+        /// <summary>
+        /// Инициализация компонентов
+        /// </summary>
         public SearchForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Кнопка фильтрации транспорта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchButton_Click(object sender, EventArgs e)
         {
             if (CheckCarBox.Checked == false &&
@@ -59,16 +75,20 @@ namespace GUI
 
         }
 
-        public void TakeList(object sender, TransportEventArgs e)
-        {
-            _listForSearch.Add(e.SendingTransport);
-        }
-
+        /// <summary>
+        /// Конструктор формы
+        /// </summary>
+        /// <param name="transportList"></param>
         public SearchForm (List<TransportBase> transportList)
         {
             _listForSearch = transportList;
         }
 
+        /// <summary>
+        /// Обработка ввода числа
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             const string letterPattern = @"[^0-9]";

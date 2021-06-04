@@ -13,17 +13,34 @@ using System.Text.RegularExpressions;
 
 namespace GUI
 {
+    /// <summary>
+    /// Класс формы добавления
+    /// </summary>
     public partial class AddTransportForm : Form
     {
+        /// <summary>
+        /// Ивент для передачи данных
+        /// </summary>
         public event EventHandler<TransportEventArgs> SendDataFromFormEvent;
 
+        /// <summary>
+        /// Тип транспорта "Машина"
+        /// </summary>
         private const string _carItem = "Машина";
 
+        /// <summary>
+        /// Тип транспорта "Машина-гибрид"
+        /// </summary>
         private const string _hybridCarItem = "Машина-гибрид";
-
+        
+        /// <summary>
+        /// Тип транспорта "Вертолет"
+        /// </summary>
         private const string _helicipterItem = "Вертолет";
 
-
+        /// <summary>
+        /// Инициализация компонентов
+        /// </summary>
         public AddTransportForm()
         {
             InitializeComponent();
@@ -51,6 +68,11 @@ namespace GUI
             #endif
         }
 
+        /// <summary>
+        /// Кнопка добаления транспорта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Click(object sender, EventArgs e)
         {
             switch (TypeOfTransportBox.Text)
@@ -91,6 +113,12 @@ namespace GUI
             #endif
         }
 
+        /// <summary>
+        /// Изменение полей на форме в зависимости
+        /// от ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormElementChange(object sender, EventArgs e)
         {
             NameBox.Clear();
@@ -135,6 +163,11 @@ namespace GUI
             }
         }
 
+        /// <summary>
+        /// Обработка чисел на форме
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             const string letterPattern = @"[^0-9]";
@@ -146,6 +179,11 @@ namespace GUI
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Обработка наименований на форме
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             const string letterPattern = @"[^а-я^ё^А-Я^Ё^-]";
@@ -157,6 +195,11 @@ namespace GUI
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Активаия кнопки, если заполнены поля
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BottonShow(object sender, EventArgs e)
         {
             switch (TypeOfTransportBox.Text)
@@ -186,6 +229,11 @@ namespace GUI
             }
         }
 
+        /// <summary>
+        /// Кнопка рандомных данных 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GetRandomData_Click(object sender, EventArgs e)
         {
             TypeOfTransportBox.Text = TypeOfTransportBox.Items

@@ -8,14 +8,19 @@ using Model.Transport;
 
 namespace GUI
 {
+    /// <summary>
+    /// Класс аргумента для передачи данныых
+    /// </summary>
     public class TransportEventArgs : EventArgs
     {
-        public event EventHandler<TransportEventArgs> SendDataFromFormEvent;
-
-        private static List<TransportBase> _listForSearch = new List<TransportBase>();
-
+        /// <summary>
+        /// Транспорт для передачи
+        /// </summary>
         private TransportBase _sendingTransport;
 
+        /// <summary>
+        /// Транспорт для передачи
+        /// </summary>
         public TransportBase SendingTransport
         {
             get => _sendingTransport;
@@ -25,21 +30,13 @@ namespace GUI
             }
         }
 
-        public TransportEventArgs()
-        {
-
-        }
-
+        /// <summary>
+        /// Конструктор для передачи транспорта
+        /// </summary>
+        /// <param name="sendingTransport">Транспорт</param>
         public TransportEventArgs(TransportBase sendingTransport)
         {
             SendingTransport = sendingTransport;
-        }
-
-
-
-        private void AddTransportEvent(object sender, TransportEventArgs e)
-        {
-            _listForSearch.Add(e.SendingTransport);
         }
     }
 }
