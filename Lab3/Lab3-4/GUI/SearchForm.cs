@@ -55,8 +55,7 @@ namespace GUI
                     case Car _ when CheckCarBox.Checked:
                     case HybridCar _ when CheckHybridCarBox.Checked:
                     case Helicopter _ when CheckHelicopterBox.Checked:
-                    {
-                        //TODO:+    
+                    {   
                         SendDataFromFormEvent?.Invoke(this, new TransportEventArgs(transportBase));
                         break;    
                     }
@@ -65,7 +64,6 @@ namespace GUI
                 if (CheckFuelBox.Checked && transportBase.FuelQuantity.ToString().
                     Contains(FuelBox.Text))
                 {
-                    //TODO:+
                     SendDataFromFormEvent?.Invoke(this, new TransportEventArgs(transportBase));
                 }
             }

@@ -146,7 +146,6 @@ namespace GUI
                     DistanceLabelUnits.Text = "км";
                     break;
                 }
-                //TODO:+
                 case HybridCarItem:
                 {
                     PowerBox.Visible = true;        
@@ -159,7 +158,6 @@ namespace GUI
                     DistanceLabelUnits.Text = "ч";    
                     break;    
                 }    
-                //TODO:+
                 case HelicopterItem:
                 {
                     ConsumptionLabel.Text = "Средний расход:";        
@@ -212,7 +210,6 @@ namespace GUI
         {
             switch (TypeOfTransportBox.Text)
             {
-                //TODO:+
                 case CarItem:
                 case HelicopterItem:
                 {

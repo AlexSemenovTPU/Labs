@@ -18,22 +18,20 @@ namespace GUI
     /// </summary>
     public partial class MainForm : Form
     {
-        //TODO: RSDN naming+
         /// <summary>
         /// Лист транспорта
         /// </summary>
         private List<TransportBase> _transportList = new List<TransportBase>();
 
-        //TODO:+
         /// <summary>
         /// Лист фильтрованного трансорта
         /// </summary>
-        private List<TransportBase> _listForSearch = new List<TransportBase>();
+        private readonly List<TransportBase> _listForSearch = new List<TransportBase>();
 
         /// <summary>
         /// На будующее
         /// </summary>
-        private XmlSerializer _serializer = new XmlSerializer(typeof(List<TransportBase>));
+        private readonly XmlSerializer _serializer = new XmlSerializer(typeof(List<TransportBase>));
 
         /// <summary>
         /// Инициализация компонентов
@@ -52,7 +50,7 @@ namespace GUI
         /// <param name="e"></param>
         public void AddTransport_Click(object sender, EventArgs e)
         {
-            AddTransportForm addTransportForm = new AddTransportForm();
+            var addTransportForm = new AddTransportForm();
             addTransportForm.SendDataFromFormEvent += AddTransportEvent;
             addTransportForm.ShowDialog();
         }
@@ -82,6 +80,7 @@ namespace GUI
             ShowList(_transportList);
         }
 
+         //TODO: RSDN
         /// <summary>
         /// Вывод листа в DataGrid
         /// </summary>
@@ -114,9 +113,6 @@ namespace GUI
         {
             SearchForm searchForm = new SearchForm();
             
-            //?
-            SearchForm searchForm1 = new SearchForm(_transportList);
-
             searchForm.FormClosed += VisibleButton;
             searchForm.SendDataFromFormEvent += AddSearchTransportEvent;
             searchForm.ShowDialog();
@@ -158,28 +154,27 @@ namespace GUI
                 Filter = "Файлы (*.aas)|*.aas|Все файлы (*.*)|*.*",
             };
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
+
+            var path = openFileDialog.FileName.ToString();
+            try
             {
-                var path = openFileDialog.FileName.ToString();
-                try
+                using (FileStream fileStream = new FileStream(path, 
+                    FileMode.OpenOrCreate))
                 {
-                    using (FileStream fileStream = new FileStream(path, 
-                        FileMode.OpenOrCreate))
-                    {
-                        _transportList = (List<TransportBase>)_serializer.
-                            Deserialize(fileStream);
-                    }
-                    DataGridTransport.DataSource = _transportList;
-                    DataGridTransport.CurrentCell = null;
-                    MessageBox.Show("Файл успешно загружен.", "Загрузка завершена",
+                    _transportList = (List<TransportBase>)_serializer.
+                        Deserialize(fileStream);
+                }
+                DataGridTransport.DataSource = _transportList;
+                DataGridTransport.CurrentCell = null;
+                MessageBox.Show("Файл успешно загружен.", "Загрузка завершена",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch(Exception)
-                {
-                    MessageBox.Show("Файл повреждён или не соответствует формату.",
-                        "Ошибка",
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Файл повреждён или не соответствует формату.",
+                    "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
         }
 
