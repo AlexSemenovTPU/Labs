@@ -9,6 +9,7 @@ namespace Model.Transport
     /// <summary>
     /// Класс Машины
     /// </summary>
+    [Serializable]
     public class Car : TransportBase
     {
         /// <summary>

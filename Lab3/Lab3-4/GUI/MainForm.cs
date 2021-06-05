@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using System.Xml.Serialization;
+using System.IO;
 
 namespace GUI
 {
@@ -32,7 +33,7 @@ namespace GUI
         /// <summary>
         /// На будующее
         /// </summary>
-        private XmlSerializer _xmlSerializer = new XmlSerializer(typeof(List<TransportBase>));
+        private XmlSerializer _serializer = new XmlSerializer(typeof(List<TransportBase>));
 
         /// <summary>
         /// Инициализация компонентов
@@ -143,6 +144,79 @@ namespace GUI
             if (_listForSearch.Count < 1) return;
 
             ClearButton.Visible = true;
+        }
+
+        /// <summary>
+        /// Кнопка загрузки файла
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Файлы (*.aas)|*.aas|Все файлы (*.*)|*.*",
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var path = openFileDialog.FileName.ToString();
+                try
+                {
+                    using (FileStream fileStream = new FileStream(path, 
+                        FileMode.OpenOrCreate))
+                    {
+                        _transportList = (List<TransportBase>)_serializer.
+                            Deserialize(fileStream);
+                    }
+                    DataGridTransport.DataSource = _transportList;
+                    DataGridTransport.CurrentCell = null;
+                    MessageBox.Show("Файл успешно загружен.", "Загрузка завершена",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Файл повреждён или не соответствует формату.",
+                        "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Кнопка сохранения файла
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (_transportList.Count == 0)
+            {
+                MessageBox.Show("Отсутствуют данные для сохранения.",
+                    "Данные не сохранены",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Файлы (*.aas)|*.aas|Все файлы (*.*)|*.*",
+                AddExtension = true,
+                DefaultExt = ".aas"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var path = saveFileDialog.FileName.ToString();
+                using (FileStream fileStream = new FileStream(path,
+                    FileMode.OpenOrCreate))
+                {
+                    _serializer.Serialize(fileStream, _transportList);
+                }
+            }
+
+            MessageBox.Show("Файл успешно сохранён.", "Сохранение завершено",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

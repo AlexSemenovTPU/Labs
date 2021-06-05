@@ -9,6 +9,7 @@ namespace Model.Transport
     /// <summary>
     /// Класс Машины-гибрида
     /// </summary>
+    [Serializable]
     public class HybridCar : TransportBase
     {
         /// <summary>

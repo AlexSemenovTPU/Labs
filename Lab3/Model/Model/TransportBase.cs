@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
+using Model.Transport;
 
 namespace Model
 {
@@ -11,6 +13,10 @@ namespace Model
     /// Базоввый класс для всех
     /// видов транспорта
     /// </summary>
+    [Serializable]
+    [XmlInclude(typeof(Car))]
+    [XmlInclude(typeof(HybridCar))]
+    [XmlInclude(typeof(Helicopter))]
     public abstract class TransportBase
     {
         /// <summary>

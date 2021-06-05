@@ -9,6 +9,7 @@ namespace Model.Transport
     /// <summary>
     /// Класс Вертолет
     /// </summary>
+    [Serializable]
     public class Helicopter : TransportBase
     {
         /// <summary>
