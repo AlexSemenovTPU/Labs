@@ -29,11 +29,12 @@ namespace GUI
         private static List<TransportBase> _listForSearch = new List<TransportBase>();
 
         /// <summary>
-        /// Инициализация компонентов
+        /// Конструктор формы
         /// </summary>
-        public SearchForm()
+        public SearchForm(List<TransportBase> transportList)
         {
             InitializeComponent();
+            _listForSearch = transportList;
         }
 
         /// <summary>
@@ -71,14 +72,6 @@ namespace GUI
 
         }
 
-        /// <summary>
-        /// Конструктор формы
-        /// </summary>
-        /// <param name="transportList"></param>
-        public SearchForm (List<TransportBase> transportList)
-        {
-            _listForSearch = transportList;
-        }
 
         /// <summary>
         /// Обработка ввода числа

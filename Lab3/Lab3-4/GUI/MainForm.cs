@@ -80,15 +80,15 @@ namespace GUI
             ShowList(_transportList);
         }
 
-         //TODO: RSDN
+        //TODO: RSDN+
         /// <summary>
         /// Вывод листа в DataGrid
         /// </summary>
-        /// <param name="transportList"></param>
-        private void ShowList(List<TransportBase> ListToShow)
+        /// <param name="listToShow">Лист для вывода на форму</param>
+        private void ShowList(List<TransportBase> listToShow)
         {
             DataGridTransport.DataSource = null;
-            DataGridTransport.DataSource = ListToShow;
+            DataGridTransport.DataSource = listToShow;
             DataGridTransport.Columns[0].HeaderText = "Наименование транспорта";
             DataGridTransport.Columns[1].HeaderText = "Затраченное топливо";
         }
@@ -111,8 +111,7 @@ namespace GUI
         /// <param name="e"></param>
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            SearchForm searchForm = new SearchForm();
-            
+            SearchForm searchForm = new SearchForm(_transportList);
             searchForm.FormClosed += VisibleButton;
             searchForm.SendDataFromFormEvent += AddSearchTransportEvent;
             searchForm.ShowDialog();
