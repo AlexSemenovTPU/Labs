@@ -26,7 +26,7 @@ namespace GUI
         /// <summary>
         /// Лист фильтрованных транспортных средств
         /// </summary>
-        private static List<TransportBase> _listForSearch = new List<TransportBase>();
+        private readonly List<TransportBase> _listForSearch;
 
         /// <summary>
         /// Конструктор формы
@@ -80,6 +80,7 @@ namespace GUI
         /// <param name="e"></param>
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //TODO: Duplication
             const string letterPattern = @"[^0-9]";
             Regex letterRegex = new Regex(letterPattern);
 

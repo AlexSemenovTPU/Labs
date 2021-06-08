@@ -80,7 +80,6 @@ namespace GUI
             ShowList(_transportList);
         }
 
-        //TODO: RSDN+
         /// <summary>
         /// Вывод листа в DataGrid
         /// </summary>

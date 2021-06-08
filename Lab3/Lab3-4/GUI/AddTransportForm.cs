@@ -176,6 +176,7 @@ namespace GUI
         /// <param name="e"></param>
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //TODO: Duplication
             const string letterPattern = @"[^0-9]";
             Regex letterRegex = new Regex(letterPattern);
 
@@ -192,6 +193,7 @@ namespace GUI
         /// <param name="e"></param>
         private void NameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //TODO: Duplication
             const string letterPattern = @"[^а-я^ё^А-Я^Ё^-]";
             Regex letterRegex = new Regex(letterPattern);
 
