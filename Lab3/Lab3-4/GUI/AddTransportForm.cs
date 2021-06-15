@@ -37,7 +37,7 @@ namespace GUI
         /// Тип транспорта "Вертолет"
         /// </summary>
         private const string HelicopterItem = "Вертолет";
-
+        
         /// <summary>
         /// Инициализация компонентов
         /// </summary>
@@ -176,14 +176,9 @@ namespace GUI
         /// <param name="e"></param>
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //TODO: Duplication
+            //TODO: Duplication+
             const string letterPattern = @"[^0-9]";
-            Regex letterRegex = new Regex(letterPattern);
-
-            if (!letterRegex.IsMatch(e.KeyChar.ToString())
-                || e.KeyChar == (char)Keys.Back) return;
-
-            e.Handled = true;
+            CheckBox.CheckBox_KeyPress(letterPattern, e);
         }
 
         /// <summary>
@@ -193,14 +188,9 @@ namespace GUI
         /// <param name="e"></param>
         private void NameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //TODO: Duplication
+            //TODO: Duplication+
             const string letterPattern = @"[^а-я^ё^А-Я^Ё^-]";
-            Regex letterRegex = new Regex(letterPattern);
-
-            if (!letterRegex.IsMatch(e.KeyChar.ToString())
-                    || e.KeyChar == (char)Keys.Back) return;
-
-            e.Handled = true;
+            CheckBox.CheckBox_KeyPress(letterPattern, e);
         }
 
         /// <summary>

@@ -52,6 +52,7 @@
     <Compile Include="AddTransportForm.Designer.cs">
       <DependentUpon>AddTransportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckBox.cs" />
     <Compile Include="TransportEventArgs.cs" />
     <Compile Include="SearchForm.cs">
       <SubType>Form</SubType>
