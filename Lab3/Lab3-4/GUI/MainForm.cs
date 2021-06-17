@@ -126,6 +126,7 @@ namespace GUI
             _listForSearch.Clear();
             DataGridTransport.DataSource = null;
             ClearButton.Visible = false;
+            ShowList(_transportList);
         }
 
         /// <summary>
