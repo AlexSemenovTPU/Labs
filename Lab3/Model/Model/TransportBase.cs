@@ -78,14 +78,15 @@ namespace Model
         /// <returns></returns>
         public static double NumberCheck (double number)
         {
-            if (number < 0)
+            if (number > 0)
             {
-                throw new ArgumentException("Величина должна" +
-                    "быть положительным числом!");
+                return number;
+                
             }
             else
             {
-                return number;
+                throw new ArgumentException("Величина должна" +
+                    "быть положительным числом!");
             }
         }
 

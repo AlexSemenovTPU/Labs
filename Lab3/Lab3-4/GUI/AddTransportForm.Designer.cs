@@ -184,9 +184,9 @@ namespace GUI
             // 
             // ButtonAdd
             // 
-            this.ButtonAdd.Location = new System.Drawing.Point(258, 234);
+            this.ButtonAdd.Location = new System.Drawing.Point(250, 234);
             this.ButtonAdd.Name = "ButtonAdd";
-            this.ButtonAdd.Size = new System.Drawing.Size(80, 25);
+            this.ButtonAdd.Size = new System.Drawing.Size(88, 25);
             this.ButtonAdd.TabIndex = 2;
             this.ButtonAdd.Text = "Добавить";
             this.ButtonAdd.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@ namespace GUI
             // 
             // GetRandomData
             // 
-            this.GetRandomData.Location = new System.Drawing.Point(84, 234);
+            this.GetRandomData.Location = new System.Drawing.Point(76, 234);
             this.GetRandomData.Name = "GetRandomData";
             this.GetRandomData.Size = new System.Drawing.Size(168, 25);
             this.GetRandomData.TabIndex = 6;

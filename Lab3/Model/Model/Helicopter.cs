@@ -33,8 +33,15 @@ namespace Model.Transport
             }
             set
             {
-                NumberCheck(value);
-                _averageConsumption = value;
+                if (value > 0)
+                {
+                    _averageConsumption = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Величина должна" +
+                        "быть положительным числом!");
+                }
             }
         }
 
@@ -49,15 +56,22 @@ namespace Model.Transport
             }
             set
             {
-                NumberCheck(value);
-                _flightTime = value;
+                if (value > 0)
+                {
+                    _flightTime = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Величина должна" +
+                        "быть положительным числом!");
+                }
             }
         }
 
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public Helicopter() : this("Неизвестно", 0, 0)
+        public Helicopter() : this("Неизвестно", 1, 1)
         {
 
         }

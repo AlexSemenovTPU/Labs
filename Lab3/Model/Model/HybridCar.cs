@@ -39,8 +39,15 @@ namespace Model.Transport
             }
             set
             {
-                NumberCheck(value);
-                _specificConsumptionGasEngine = value;
+                if (value > 0)
+                {
+                    _specificConsumptionGasEngine = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Величина должна" +
+                        "быть положительным числом!");
+                }
             }
         }
 
@@ -55,8 +62,15 @@ namespace Model.Transport
             }
             set
             {
-                NumberCheck(value);
-                _travelTime = value;
+                if (value > 0)
+                {
+                    _travelTime = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Величина должна" +
+                        "быть положительным числом!");
+                }
             }
         }
 
@@ -71,15 +85,22 @@ namespace Model.Transport
             }
             set
             {
-                NumberCheck(value);
-                _electricMotorPower = value;
+                if (value > 0)
+                {
+                    _electricMotorPower = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Величина должна" +
+                        "быть положительным числом!");
+                }
             }
         }
 
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public HybridCar() : this("Неизвестно", 0, 0, 0)
+        public HybridCar() : this("Неизвестно", 1, 1, 1)
         {
 
         }
