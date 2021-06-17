@@ -176,9 +176,8 @@ namespace GUI
         /// <param name="e"></param>
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //TODO: Duplication+
             const string letterPattern = @"[^0-9]";
-            CheckBox.CheckBox_KeyPress(letterPattern, e);
+            CheckBox.CheckBoxKeyPress(letterPattern, e);
         }
 
         /// <summary>
@@ -188,9 +187,8 @@ namespace GUI
         /// <param name="e"></param>
         private void NameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //TODO: Duplication+
             const string letterPattern = @"[^а-я^ё^А-Я^Ё^-]";
-            CheckBox.CheckBox_KeyPress(letterPattern, e);
+            CheckBox.CheckBoxKeyPress(letterPattern, e);
         }
 
         /// <summary>
