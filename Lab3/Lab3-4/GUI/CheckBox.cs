@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace GUI
@@ -18,9 +13,9 @@ namespace GUI
         /// </summary>
         /// <param name="pattern">Паттерн</param>
         /// <param name="e">Объект события</param>
-        public static void CheckBox_KeyPress (string pattern, KeyPressEventArgs e)
+        public static void CheckBoxKeyPress (string pattern, KeyPressEventArgs e)
         {
-            Regex letterRegex = new Regex(pattern);
+            var letterRegex = new Regex(pattern);
 
             if (!letterRegex.IsMatch(e.KeyChar.ToString())
                     || e.KeyChar == (char)Keys.Back) return;
