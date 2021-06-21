@@ -177,7 +177,7 @@ namespace GUI
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             const string letterPattern = @"[^0-9]";
-            CheckBox.CheckBoxKeyPress(letterPattern, e);
+            TextBoxChecker.TextBoxKeyPress(letterPattern, e);
         }
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace GUI
         private void NameBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             const string letterPattern = @"[^а-я^ё^А-Я^Ё^-]";
-            CheckBox.CheckBoxKeyPress(letterPattern, e);
+            TextBoxChecker.TextBoxKeyPress(letterPattern, e);
         }
 
         /// <summary>
