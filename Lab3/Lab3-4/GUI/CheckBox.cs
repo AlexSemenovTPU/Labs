@@ -4,12 +4,13 @@ using System.Windows.Forms;
 namespace GUI
 {
     /// <summary>
-    /// Класс для обработки ввода в TextBox
+    /// Класс для обработки ввода данных
+    /// на формах
     /// </summary>
     public static class CheckBox
     {
         /// <summary>
-        /// Обработка ввода в TextBox
+        /// Обработка ввода данных на формах
         /// </summary>
         /// <param name="pattern">Паттерн</param>
         /// <param name="e">Объект события</param>
